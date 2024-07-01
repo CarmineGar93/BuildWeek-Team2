@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Questions
     </title>
 </head>
+
 <body>
     <header>
         <div>
@@ -14,6 +16,26 @@
             <h2>EPICODE</h2>
         </div>
     </header>
-    
+
+    <main>
+        <div id="timer"></div>               <!-- TIMER AD OGNI DOMANDA -->
+
+        <section>                            <!-- SECTION PER LE DOMANDE -->
+            <div id="question"></div>        <!-- CONTENITORE PER LA DOMANDA -->
+
+            <div id="answers"></div>         <!-- CONTENITORE PER LE RISPOSTE -->
+        </section>
+
+        <div>
+            <button type="button" id="btnAvanti">AVANTI</button>     <!-- BUTTON PER AVANZARE LE DOMANDE -->
+        </div>
+
+
+        <div id="countQuestions"></div>         <!-- CONTATORE DI DOMANDE -->
+
+    </main>
+
+    <script src="assets/js/question.js"></script>
 </body>
+
 </html>
