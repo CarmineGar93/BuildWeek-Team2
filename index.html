@@ -5,25 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- collegamento per font esterno, Luca -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <title>QUIZ</title>
 </head>
 
-<body>
+<body class= "body">
     <header>
-        <div>
-            <img src="assets/img/epicode_logo.png" alt="Logo-Epicode">
-            <h2>EPICODE</h2>
+        <div class ="intestazione"> <!--cosi con un unico CSS modifichiamo l'intestazione in tutte le pag. Luca-->
+            <img src="assets/img/epicode_logo.png" alt="Logo-Epicode" class="logo">
+        <!-- la scritta epicode sta gia nel logo sopra scritto, Luca <h2>EPICODE</h2>  -->
         </div>
     </header>
 
     <main>
         <div>
-            <h1>Welcome to <span>your exam</span></h1>
+            <h1 class="title-first-page">Welcome to<br> <!-- per andare a capo altre idee zero, Luca-->
+                <span>your exam</span></h1>
         </div>
 
         <section>
             <div>
-                <h2>Instructions</h2>
+                <h2><span>Instructions</span></h2> <!--aggiunto span per formattazione del grassetto, Luca-->
             </div>
             <div>
                 <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if

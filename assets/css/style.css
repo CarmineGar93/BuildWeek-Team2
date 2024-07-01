@@ -1,0 +1,31 @@
+* {
+    font-family: "Inter", sans-serif; /* font fornito dal prof, Luca */
+    font-weight: 350; /* grossezza del testo per differenziarlo dal grasstto, Luca */
+}
+
+body { /* ho tolto il punto prima di body, Luca */
+    background-image: url("../img/bg.jpg"); /* carico l'immagine di sfondo, Luca */
+    background-size: cover; /* cover = copre la grandezza del body, Luca */
+    color : white; /* colore bianco alle scritte, Luca */
+}
+
+.logo {
+    height: 4em; /* imposto la grandezza del logo, Luca */
+}
+
+span {
+    font-weight: bold; /* ogni span sara grassetto, Luca */
+}
+
+h2 {
+    color:#C2158E; /* colore dell'instruction prima pagina, Luca */
+}
+
+.title-first-page { /* formattazione titolo pagina principale */
+    font-size: 120px;
+}
+
+main, .logo-img { /* margini da applicare presumibilmente a tutte le pagine, Luca */
+    margin-left: 7%;
+    margin-top: 3%;
+}
