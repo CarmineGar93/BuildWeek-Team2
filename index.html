@@ -11,48 +11,51 @@
     <title>QUIZ</title>
 </head>
 
-<body class= "body">
-    <header>
-        <div class ="intestazione"> <!--cosi con un unico CSS modifichiamo l'intestazione in tutte le pag. Luca-->
-            <img src="assets/img/epicode_logo.png" alt="Logo-Epicode" class="logo">
-        <!-- la scritta epicode sta gia nel logo sopra scritto, Luca <h2>EPICODE</h2>  -->
-        </div>
-    </header>
-
-    <main>
-        <div>
-            <h1 class="title-first-page">Welcome to<br> <!-- per andare a capo altre idee zero, Luca-->
-                <span>your exam</span></h1>
-        </div>
-
-        <section>
-            <div>
-                <h2><span>Instructions</span></h2> <!--aggiunto span per formattazione del grassetto, Luca-->
+<body>
+    <div class="bodyDiv">
+        <header>
+            <div class="intestazione"> <!--cosi con un unico CSS modifichiamo l'intestazione in tutte le pag. Luca-->
+                <img src="assets/img/epicode_logo.png" alt="Logo-Epicode" class="logo">
+                <!-- la scritta epicode sta gia nel logo sopra scritto, Luca <h2>EPICODE</h2>  -->
             </div>
+        </header>
+
+        <main>
             <div>
-                <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if
-                    you're unsure of a few of them.</p>
+                <h1 class="title-first-page">Welcome to<br> <!-- per andare a capo altre idee zero, Luca-->
+                    <span>your exam</span>
+                </h1>
             </div>
 
-            <div>
-                <ul>
-                    <li>Each question is <span>timed</span> and can only be <span>answered once</span>.</li>
-                    <li> Changing browser tab or opening other windows will <span>invalidate the question</span>.</li>
-                    <li>This exam will take approx. <span>0-5 minutes</span></li>
-                </ul>
-            </div>
-        </section>
+            <section>
+                <div>
+                    <h2 id="instructions">Instructions</h2> <!--aggiunto span per formattazione del grassetto, Luca-->
+                </div>
+                <div class="instructionsText">
+                    <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if
+                        you're unsure of a few of them.</p>
+                </div>
 
-        <form action="question.html">
-            <input type="checkbox" name="promise" id="promise">
-            <label for="promise">I promise to answer myself without help from anyone</label>
+                <div>
+                    <ul>
+                        <li>Each question is <span>timed</span> and can only be <span>answered once</span>.</li>
+                        <li> Changing browser tab or opening other windows will <span>invalidate the question</span>.
+                        </li>
+                        <li>This exam will take approx. <span>0-5 minutes</span></li>
+                    </ul>
+                </div>
+            </section>
 
-            <button type="submit" id="btnPromise">PROCEED</button>
-        </form>
-    </main>
+            <form action="question.html">
+                <input type="checkbox" name="promise" id="promise">
+                <label for="promise">I promise to answer myself without help from anyone</label>
 
-    <script src="assets/js/javascript.js"></script>
+                <button type="submit" id="btnPromise">PROCEED</button>
+            </form>
+        </main>
 
+        <script src="assets/js/javascript.js"></script>
+    </div>
 </body>
 
 </html>
