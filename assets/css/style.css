@@ -3,6 +3,19 @@
     font-weight: 350; /* grossezza del testo per differenziarlo dal grasstto, Luca */
 }
 
+@font-face {
+    font-family: "Inter";
+    src: url("/assets/font/Inter-Regular.ttf") format("regular");
+    src: url("/assets/font/Inter-Black.ttf") format("black");
+    src: url("/assets/font/Inter-Bold.ttf") format("bold");
+    src: url("/assets/font/Inter-Light.ttf") format("light");
+    src: url("/assets/font/Inter-Medium.ttf") format("medium");
+    src: url("/assets/font/Inter-Thin.ttf") format("thin");
+
+    font-weight: normal;
+    font-style: normal;
+} 
+
 body { /* ho tolto il punto prima di body, Luca */
     background-image: url("../img/bg.jpg"); /* carico l'immagine di sfondo, Luca */
     background-size: cover; /* cover = copre la grandezza del body, Luca */
