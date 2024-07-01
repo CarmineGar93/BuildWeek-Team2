@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Feedback</title>
 </head>
+
 <body>
     <header>
         <div>
             <img src="assets/img/epicode_logo.png" alt="Logo-Epicode">
-            <h2>EPICODE</h2>
-        </div>
     </header>
 
     <main>
-        
+        <div>
+            <h1>Tell us how it's going</h1>
+            <h4>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</h4>
+        </div>
+
+        <div id="starFeedback">
+            <img src="assets/img/star.svg" alt="star">
+        </div>
+
+        <div>
+            <h4>Leave us an open feedback about your experience so far</h4>
+        </div>
+
+        <form>
+            <div>
+                <input type="text" name="feedback" id="feedback" placeholder="Write your comment here">
+            </div>
+
+            <div>
+                <button type="reset" id="moreInfo">MORE INFO</button>
+            </div>
+        </form>
+
     </main>
-    
+    <script src="assets/js/feedback.js"></script>
 </body>
+
 </html>
