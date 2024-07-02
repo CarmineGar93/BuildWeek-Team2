@@ -86,30 +86,112 @@ ul {
     
 }
 
-/*Css di Javascript*/
+input[type="checkbox"] {
+    display: none;
+}
 
-.answersDiv {
+.personalCheckbox {
+    position: relative;
     display: inline-block;
-    text-align: center;
-    align-content: center;
-    width: 350px;
-    height: 80px;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 50px;
-    margin: 30px;
-    user-select: none;
+    width: 20px;
+    height: 20px;
+    background-color: #cccccc00; 
+    border-radius: 4px;
     cursor: pointer;
-    transition: 0.3s;
+    vertical-align: middle;
 }
 
-.answersDiv:hover {
-    background-color: rgba(255, 255, 255, 0.11);
+.personalCheckbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid #920869; 
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
 
-.click {
-    background-color: #CB2376;
+
+input[type="checkbox"]:checked + .personalCheckbox {
+    background-color: #8208923f; 
 }
 
-.click:hover {
-    background-color: #fc1c8c;
+
+input[type="checkbox"]:checked + .personalCheckbox:after {
+    display: block;
+}
+
+#instructions {
+    color: #C2158E;
+    /* colore dell'instruction prima pagina, Luca */
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.instructionsText {
+    margin-right: 30em;
+    font-size: 1.5em;
+    word-wrap: break-word;
+}
+
+main,
+.logo-img {
+    /* margini da applicare presumibilmente a tutte le pagine, Luca */
+    margin-left: 7%;
+    margin-top: 3%;
+}
+
+ul {
+    line-height: 25px;
+}
+
+#btnPromise {
+    background-color: #00FFFF;
+    color: black;
+    -webkit-box-shadow: 0px 0px 21px 7px rgba(43,210,255,0.5); 
+    box-shadow: 0px 0px 21px 7px rgba(43,210,255,0.5);
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.personalCheckbox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #cccccc00; 
+    border-radius: 4px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.personalCheckbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid #920869; 
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+input[type="checkbox"]:checked + .personalCheckbox {
+    background-color: #8208923f; 
+}
+
+
+input[type="checkbox"]:checked + .personalCheckbox:after {
+    display: block;
 }
