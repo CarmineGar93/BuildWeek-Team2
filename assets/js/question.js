@@ -172,3 +172,5 @@ function unselect () {
   selected.classList.remove('click');
 } 
 }
+
+console.log('ciao')
