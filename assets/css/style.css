@@ -227,7 +227,7 @@ form p {
     color: #C2158E;
 }
 
-
+//css di javascript
 @keyframes circletimer {
     0% {
       stroke-dashoffset: 500;
@@ -273,4 +273,34 @@ form p {
     max-height: 300px;
 
 }
+.answersDiv {
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+    width: 350px;
+    height: 80px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50px;
+    margin: 30px;
+    user-select: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
+.answersDiv:hover {
+    background-color: rgba(255, 255, 255, 0.11);
+}
+
+.click {
+    background-color: #CB2376;
+}
+
+.click:hover {
+    background-color: #fc1c8c;
+}
+
+
+
+#countQuestions span {
+    color: #C2158E;
+}
