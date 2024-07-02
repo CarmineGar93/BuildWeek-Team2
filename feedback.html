@@ -9,37 +9,60 @@
 </head>
 
 <body>
-    <header>
-        <div>
-            <img src="assets/img/epicode_logo.png" alt="Logo-Epicode"> <!-- LOGO EPICODE -->
-    </header>
+    <div class="bodyDiv">
+        <header>
+            <div class="intestazione"> <!--cosi con un unico CSS modifichiamo l'intestazione in tutte le pag. Luca-->
+                <img src="assets/img/epicode_logo.png" alt="Logo-Epicode" class="logo">
+                <!-- la scritta epicode sta gia nel logo sopra scritto, Luca <h2>EPICODE</h2>  -->
+            </div>
+        </header>
 
-    <main>
-        <div>
-            <h1>Tell us how it's going</h1>
-            <h4>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</h4>
-        </div>
+        <main class="mainFeed">
+            <div class="title_allPages">
+                <h1>Tell us how it's going</h1>
+                <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
+            </div>
 
-        <div id="starFeedback">
-            <img src="assets/img/star.svg" alt="star">
-        </div>
+            <div class="rate">
 
-        <div>
-            <h4>Leave us an open feedback about your experience so far</h4>
-        </div>
+                <label for="star1" title="text" class="star"></label>
 
-        <form>
-            <div>
-                <input type="text" name="feedback" id="feedback" placeholder="Write your comment here">
+                <label for="star2" title="text" class="star"></label>
+
+                <label for="star3" title="text" class="star"></label>
+
+                <label for="star4" title="text" class="star"></label>
+
+                <label for="star5" title="text" class="star"></label>
+
+                <label for="star6" title="text" class="star"></label>
+
+                <label for="star7" title="text" class="star"></label>
+
+                <label for="star8" title="text" class="star"></label>
+
+                <label for="star9" title="text" class="star"></label>
+
+                <label for="star10" title="text" class="star"></label>
             </div>
 
             <div>
-                <button type="reset" id="moreInfo">MORE INFO</button>
+                <p>Leave us an open feedback about your experience so far</p>
             </div>
-        </form>
 
-    </main>
-    <script src="assets/js/feedback.js"></script>
+            <form>
+                <div>
+                    <input type="text" name="feedback" id="feedback" placeholder="Write your comment here">
+                </div>
+                <div class="linea"></div>
+                <div>
+                    <button type="reset" id="moreInfo" class="feedbackButton">MORE INFO</button>
+                </div>
+            </form>
+
+        </main>
+        <script src="assets/js/feedback.js"></script>
+    </div>
 </body>
 
 </html>
