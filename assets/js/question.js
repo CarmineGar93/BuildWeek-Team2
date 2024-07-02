@@ -104,17 +104,23 @@ const countQuestions = document.getElementById('countQuestions');
 const btnAvanti = document.getElementById('btnAvanti');
 const question = document.getElementById('question');
 const answers = document.getElementById('answers');
+const circle = document.getElementsByClassName('circle')[0];
+const pTimer = document.createElement('p');
+pTimer.innerText = 10;
+timer.appendChild(pTimer);
 
 const questionsArray = [];
 const answersArray = [];
+let random = [];
 
 let interval;
-
+let count;
+let countdownBegin = 9;
 let i = 0;
 const questionDiv = document.createElement('h1');
 
 let answersCorrect = 0;
-
+let peppino = 0;
 
 window.addEventListener('load', init())
 
@@ -124,7 +130,9 @@ function init() {
     displayCount();
     disable();
     intervalSet();
+    timerCircle();
 }
+
 
 
 function questionDisplay() {
@@ -134,6 +142,19 @@ function questionDisplay() {
         for (let e = 0; e < questions[i].incorrect_answers.length; e++) {
             answersArray[i].push(questions[i].incorrect_answers[e]);
         }
+    }
+
+    for (let i = 0; i < answersArray.length; i++) {
+        let random2 = [];
+        for (let j = 0; j < answersArray[i].length; j++) {
+            let random3 = Math.floor(Math.random() * answersArray[i].length);
+            if (!random2.includes(answersArray[i][random3])) {
+                random2.push(answersArray[i][random3]);
+            } else {
+                j--;
+            }
+        }
+        random.push(random2);
     }
 
     for (let i = 0; i < questions.length; i++) {
@@ -152,15 +173,37 @@ function intervalSet() {
             countQuestions.innerHTML = '';
             displayCount();
         } else {
+            peppino = answersCorrect;
+            let peppino1 = localStorage.setItem('peppino', peppino);
             window.location.href = 'results.html';
+
         }
-    }, 5000);
+    }, 10000);
+}
+
+
+function timerCircle() {
+    count = setInterval(function () {
+
+        if (countdownBegin <= 0) {
+            countdownBegin = 10;
+            pTimer.innerHTML = countdownBegin;
+            --countdownBegin;
+        } else {
+            pTimer.innerText = '';
+            pTimer.innerHTML = countdownBegin;
+            timer.appendChild(pTimer);
+            --countdownBegin;
+        }
+
+    }, 1000);
 }
 
 
 
-
 btnAvanti.addEventListener('click', function () {
+    circle.style.animation = 'none';
+
     checkAnswer();
     if (i < questionsArray.length - 1) {
         i++;
@@ -170,11 +213,21 @@ btnAvanti.addEventListener('click', function () {
         quest();
         countQuestions.innerHTML = '';
         displayCount();
+        circle.style.animation = '10s circletimer linear infinite';
+
     } else {
+        peppino = answersCorrect;
+        console.log(peppino);
+        let peppino1 = localStorage.setItem('peppino', peppino);
         window.location.href = 'results.html';
     }
 
+    clearInterval(count);
+    timerCircle();
     clearInterval(interval);
+    pTimer.innerText = 10;
+    timer.appendChild(pTimer);
+    countdownBegin = 9;
     intervalSet();
 })
 
@@ -182,12 +235,10 @@ function quest() {
     questionDiv.innerHTML = questionsArray[i];
     question.appendChild(questionDiv);
 
-    for (let j = 0; j < answersArray[i].length; j++) {
+    for (let j = 0; j < random[i].length; j++) {
         const answersDiv = document.createElement('p');
-        const risposte = answersArray[i][j];
+        const risposte = random[i][j];
         answersDiv.innerHTML = risposte;
-        const risposteTrim = risposte.split(' ').join('');
-        answersDiv.setAttribute('id', risposteTrim);
         answersDiv.classList.add('answersDiv');
         answersDiv.addEventListener('click', function () {
             unselect();
@@ -205,6 +256,7 @@ function checkAnswer() {
     if (click === questions[i].correct_answer) {
         answersCorrect++;
     }
+
     console.log(click)
     console.log(answersCorrect)
 }
@@ -226,7 +278,5 @@ function unselect() {
 function disable() {
     btnAvanti.setAttribute('disabled', true)
 }
-
-
 
 
