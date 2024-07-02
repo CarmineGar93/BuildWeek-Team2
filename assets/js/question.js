@@ -105,17 +105,29 @@ const btnAvanti = document.getElementById('btnAvanti');
 const question = document.getElementById('question');
 const answers = document.getElementById('answers');
 
+const questionsArray = [];
+const answersArray = [];
+
+let interval;
+
+let i = 0;
+const questionDiv = document.createElement('h1');
+
+let answersCorrect = 0;
+
 
 window.addEventListener('load', init())
 
 function init() {
     questionDisplay();
+    quest();
+    displayCount();
+    disable();
+    intervalSet();
 }
 
-function questionDisplay() {
-    const questionsArray = []
-    const answersArray = [];
 
+function questionDisplay() {
     for (let i = 0; i < questions.length; i++) {
         answersArray.push([]);
         answersArray[i].push(questions[i].correct_answer);
@@ -127,50 +139,94 @@ function questionDisplay() {
     for (let i = 0; i < questions.length; i++) {
         questionsArray.push(questions[i].question);
     }
+}
+
+function intervalSet() {
+    interval = setInterval(function () {
+        if (i < questionsArray.length - 1) {
+            i++;
+            questionDiv.innerHTML = '';
+            answers.innerHTML = '';
+            disable();
+            quest();
+            countQuestions.innerHTML = '';
+            displayCount();
+        } else {
+            window.location.href = 'results.html';
+        }
+    }, 5000);
+}
 
 
 
-    let i = 0;
-    const questionDiv = document.createElement('h1');
 
-    quest();
-
-    btnAvanti.addEventListener('click', function () {
+btnAvanti.addEventListener('click', function () {
+    checkAnswer();
+    if (i < questionsArray.length - 1) {
         i++;
         questionDiv.innerHTML = '';
         answers.innerHTML = '';
+        disable();
         quest();
-    })
+        countQuestions.innerHTML = '';
+        displayCount();
+    } else {
+        window.location.href = 'results.html';
+    }
 
-    function quest() {
-        questionDiv.innerHTML = questionsArray[i];
-        question.appendChild(questionDiv);
+    clearInterval(interval);
+    intervalSet();
+})
 
-        for (let j = 0; j < answersArray[i].length; j++) {
-            const answersDiv = document.createElement('p');
-            const risposte = answersArray[i][j];
-            answersDiv.innerHTML = risposte;
-            const risposteTrim = risposte.split(' ').join('');
-            answersDiv.setAttribute('id', risposteTrim);
-            answersDiv.classList.add('answersDiv');
-            answersDiv.addEventListener('click', function () {
-                unselect();
-                answersDiv.classList.add('click');
+function quest() {
+    questionDiv.innerHTML = questionsArray[i];
+    question.appendChild(questionDiv);
 
-            })
-            answers.appendChild(answersDiv);
+    for (let j = 0; j < answersArray[i].length; j++) {
+        const answersDiv = document.createElement('p');
+        const risposte = answersArray[i][j];
+        answersDiv.innerHTML = risposte;
+        const risposteTrim = risposte.split(' ').join('');
+        answersDiv.setAttribute('id', risposteTrim);
+        answersDiv.classList.add('answersDiv');
+        answersDiv.addEventListener('click', function () {
+            unselect();
+            answersDiv.classList.add('click');
+            btnAvanti.removeAttribute('disabled')
 
-
-        }
+        })
+        answers.appendChild(answersDiv);
     }
 }
 
 
-function unselect () {
-  const selected = document.querySelector('.click');
-  if (selected) {
-  selected.classList.remove('click');
-} 
+function checkAnswer() {
+    const click = document.querySelector('.click').textContent
+    if (click === questions[i].correct_answer) {
+        answersCorrect++;
+    }
+    console.log(click)
+    console.log(answersCorrect)
 }
 
-console.log('ciao')
+function displayCount() {
+    const pFoot = document.createElement('p');
+    pFoot.innerHTML = 'QUESTION ' + (i + 1) + '<span> / ' + questions.length + '</span>';
+    countQuestions.appendChild(pFoot);
+}
+
+
+function unselect() {
+    const selected = document.querySelector('.click');
+    if (selected) {
+        selected.classList.remove('click');
+    }
+}
+
+function disable() {
+    btnAvanti.setAttribute('disabled', true)
+}
+
+
+
+
