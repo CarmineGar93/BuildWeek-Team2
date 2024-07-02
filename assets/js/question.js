@@ -104,18 +104,38 @@ const countQuestions = document.getElementById('countQuestions');
 const btnAvanti = document.getElementById('btnAvanti');
 const question = document.getElementById('question');
 const answers = document.getElementById('answers');
+const circle = document.getElementsByClassName('circle')[0];
+const pTimer = document.createElement('p');
+pTimer.innerText = 10;
+timer.appendChild(pTimer);
 
+const questionsArray = [];
+const answersArray = [];
+let random = [];
+
+let interval;
+let count;
+let countdownBegin = 9;
+let i = 0;
+const questionDiv = document.createElement('h1');
+
+let answersCorrect = 0;
+let peppino = 0;
 
 window.addEventListener('load', init())
 
 function init() {
     questionDisplay();
+    quest();
+    displayCount();
+    disable();
+    intervalSet();
+    timerCircle();
 }
 
-function questionDisplay() {
-    const questionsArray = []
-    const answersArray = [];
 
+
+function questionDisplay() {
     for (let i = 0; i < questions.length; i++) {
         answersArray.push([]);
         answersArray[i].push(questions[i].correct_answer);
@@ -124,51 +144,139 @@ function questionDisplay() {
         }
     }
 
+    for (let i = 0; i < answersArray.length; i++) {
+        let random2 = [];
+        for (let j = 0; j < answersArray[i].length; j++) {
+            let random3 = Math.floor(Math.random() * answersArray[i].length);
+            if (!random2.includes(answersArray[i][random3])) {
+                random2.push(answersArray[i][random3]);
+            } else {
+                j--;
+            }
+        }
+        random.push(random2);
+    }
+
     for (let i = 0; i < questions.length; i++) {
         questionsArray.push(questions[i].question);
     }
+}
+
+function intervalSet() {
+    interval = setInterval(function () {
+        if (i < questionsArray.length - 1) {
+            i++;
+            questionDiv.innerHTML = '';
+            answers.innerHTML = '';
+            disable();
+            quest();
+            countQuestions.innerHTML = '';
+            displayCount();
+        } else {
+            peppino = answersCorrect;
+            let peppino1 = localStorage.setItem('peppino', peppino);
+            window.location.href = 'results.html';
+
+        }
+    }, 10000);
+}
+
+
+function timerCircle() {
+    count = setInterval(function () {
+
+        if (countdownBegin <= 0) {
+            countdownBegin = 10;
+            pTimer.innerHTML = countdownBegin;
+            --countdownBegin;
+        } else {
+            pTimer.innerText = '';
+            pTimer.innerHTML = countdownBegin;
+            timer.appendChild(pTimer);
+            --countdownBegin;
+        }
+
+    }, 1000);
+}
 
 
 
-    let i = 0;
-    const questionDiv = document.createElement('h1');
+btnAvanti.addEventListener('click', function () {
+    circle.style.animation = 'none';
 
-    quest();
-
-    btnAvanti.addEventListener('click', function () {
+    checkAnswer();
+    if (i < questionsArray.length - 1) {
         i++;
         questionDiv.innerHTML = '';
         answers.innerHTML = '';
+        disable();
         quest();
-    })
+        countQuestions.innerHTML = '';
+        displayCount();
+        circle.style.animation = '10s circletimer linear infinite';
 
-    function quest() {
-        questionDiv.innerHTML = questionsArray[i];
-        question.appendChild(questionDiv);
+    } else {
+        peppino = answersCorrect;
+        console.log(peppino);
+        let peppino1 = localStorage.setItem('peppino', peppino);
+        window.location.href = 'results.html';
+    }
 
-        for (let j = 0; j < answersArray[i].length; j++) {
-            const answersDiv = document.createElement('p');
-            const risposte = answersArray[i][j];
-            answersDiv.innerHTML = risposte;
-            const risposteTrim = risposte.split(' ').join('');
-            answersDiv.setAttribute('id', risposteTrim);
-            answersDiv.classList.add('answersDiv');
-            answersDiv.addEventListener('click', function () {
-                unselect();
-                answersDiv.classList.add('click');
+    clearInterval(count);
+    timerCircle();
+    clearInterval(interval);
+    pTimer.innerText = 10;
+    timer.appendChild(pTimer);
+    countdownBegin = 9;
+    intervalSet();
+})
 
-            })
-            answers.appendChild(answersDiv);
+function quest() {
+    questionDiv.innerHTML = questionsArray[i];
+    question.appendChild(questionDiv);
 
+    for (let j = 0; j < random[i].length; j++) {
+        const answersDiv = document.createElement('p');
+        const risposte = random[i][j];
+        answersDiv.innerHTML = risposte;
+        answersDiv.classList.add('answersDiv');
+        answersDiv.addEventListener('click', function () {
+            unselect();
+            answersDiv.classList.add('click');
+            btnAvanti.removeAttribute('disabled')
 
-        }
+        })
+        answers.appendChild(answersDiv);
     }
 }
 
 
-function unselect () {
-  const selected = document.querySelector('.click');
-  if (selected) {
-  selected.classList.remove('click');
-} 
+function checkAnswer() {
+    const click = document.querySelector('.click').textContent
+    if (click === questions[i].correct_answer) {
+        answersCorrect++;
+    }
+
+    console.log(click)
+    console.log(answersCorrect)
 }
+
+function displayCount() {
+    const pFoot = document.createElement('p');
+    pFoot.innerHTML = 'QUESTION ' + (i + 1) + '<span> / ' + questions.length + '</span>';
+    countQuestions.appendChild(pFoot);
+}
+
+
+function unselect() {
+    const selected = document.querySelector('.click');
+    if (selected) {
+        selected.classList.remove('click');
+    }
+}
+
+function disable() {
+    btnAvanti.setAttribute('disabled', true)
+}
+
+
