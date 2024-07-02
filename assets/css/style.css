@@ -23,6 +23,7 @@ body {
     /* carico l'immagine di sfondo, Luca */
     background-size: cover;
     /* cover = copre la grandezza del body, Luca */
+    color: white; /*aggiunta mia per la seconda pagina insieme vediamo se tenerla o cambiarla, Carmine*/ 
 }
 
 .bodyDiv {
@@ -227,7 +228,8 @@ form p {
     color: #C2158E;
 }
 
-//css di javascript
+/*css di javascript vediamo cosa tenere per forza e cosa modificare*/
+
 @keyframes circletimer {
     0% {
       stroke-dashoffset: 500;
@@ -245,11 +247,12 @@ form p {
     top: 20%;
     left: 80%;
     transform: translate(-50%, -50%) rotateZ(-90deg);
+    
   }
   
   svg .circle {
     stroke: rgba(188, 0, 84, 1);
-    stroke-width: 30;
+    stroke-width: 20;
     fill: transparent;
     stroke-dashoffset: 500;
     stroke-dasharray: 0;
