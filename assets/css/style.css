@@ -87,7 +87,7 @@ span {
     font-size: 1.5em;
 }
 
-main,
+main 
 .logo-img {
     /* margini da applicare presumibilmente a tutte le pagine, Luca */
     margin-left: 7%;
@@ -200,7 +200,7 @@ form p {
     margin: 0;
 }
 
-.rate i:hover ~ i {
+.rate i:hover~i {
     color: #cecece;
 }
 
@@ -254,47 +254,10 @@ form p {
 
 /*css di javascript vediamo cosa tenere per forza e cosa modificare*/
 
-@keyframes circletimer {
-    0% {
-        stroke-dashoffset: 500;
-        stroke-dasharray: 500;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-        stroke-dasharray: 500;
-    }
-}
-
-svg {
-    background-color: transparent;
-    position: absolute;
-    top: 15%;
-    left: 80%;
-    transform: translate(-50%, -50%) rotateZ(-90deg);
-}
 
 
-svg .circle {
-    stroke: #00FFFF;
-    stroke-width: 20;
-    fill: transparent;
-    stroke-dashoffset: 500;
-    stroke-dasharray: 0;
-    animation: 10s circletimer linear infinite;
-    
-}
 
-#timer p {
-    position: absolute;
-    display: block;
-    top: 10.5%;
-    left: 80%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    font-size: 50px;
-    font-weight: 700;
-}
+
 
 
 
@@ -336,14 +299,6 @@ svg .circle {
     background: linear-gradient(173deg, #CC0092 0%, #b1009c 35%, #8A0079 100%);
 }
 
-/*.click:hover {
-    
-    background: #9c9c9c28;
-    ;
-    
-
-    ??^
-} */
 
 
 
@@ -370,21 +325,66 @@ svg .circle {
     margin-right: 7%;
 }
 
-#center-prova {
-    text-align: center;
+
+@keyframes circletimer {
+    0% {
+        stroke-dashoffset: 500;
+        stroke-dasharray: 500;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 500;
+    }
+}
+
+#timer p {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+
+.timerCircle {
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
+
+svg {
+    background-color: transparent;
+    transform: rotateZ(-90deg);
+}
+
+svg .circle {
+    stroke: #00FFFF;
+    stroke-width: 20;
+    fill: transparent;
+    stroke-dashoffset: 500;
+    stroke-dasharray: 0;
+    animation: 10s circletimer linear infinite;
+}
+
 .seconds,
 .remaining {
     font-size: 0.8em;
     position: absolute;
-    left: 78.2%;
 }
 
 .seconds {
-    top: 14%;
+    top: 20%;
 }
 
 .remaining {
-    top: 22%;
+    top: 60%;
 }
