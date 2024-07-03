@@ -100,66 +100,88 @@ const questions = [
         category: "Science: Computers",
         type: "multiple",
         difficulty: "easy",
-        question:
-            "Which programming language shares its name with an island in Indonesia?",
-        correct_answer: "Java",
-        incorrect_answers: ["Python", "C", "Jakarta"],
+        question: "What does GPU stand for?",
+        correct_answer: "Graphics Processing Unit",
+        incorrect_answers: [
+            "Graphical Performance Unit",
+            "Graphics Performance Unit",
+            "Graphical Processor Unit",
+        ],
     },
     {
         category: "Science: Computers",
         type: "multiple",
         difficulty: "easy",
-        question:
-            "Which programming language shares its name with an island in Indonesia?",
-        correct_answer: "Java",
-        incorrect_answers: ["Python", "C", "Jakarta"],
+        question: "Which company developed the JavaScript programming language?",
+        correct_answer: "Netscape",
+        incorrect_answers: ["Microsoft", "Sun Microsystems", "IBM"],
+    },
+    {
+        category: "Science: Computers",
+        type: "boolean",
+        difficulty: "easy",
+        question: "The Python programming language is named after a snake.",
+        correct_answer: "False",
+        incorrect_answers: ["True"],
+    },
+    {
+        category: "Science: Computers",
+        type: "boolean",
+        difficulty: "easy",
+        question: "HTML stands for HyperText Markup Language.",
+        correct_answer: "True",
+        incorrect_answers: ["False"],
     },
     {
         category: "Science: Computers",
         type: "multiple",
         difficulty: "easy",
-        question:
-            "Which programming language shares its name with an island in Indonesia?",
-        correct_answer: "Java",
-        incorrect_answers: ["Python", "C", "Jakarta"],
+        question: "In which year was the Python 3.0 version released?",
+        correct_answer: "2008",
+        incorrect_answers: ["2000", "2010", "2015"],
     },
     {
         category: "Science: Computers",
         type: "multiple",
         difficulty: "easy",
-        question:
-            "Which programming language shares its name with an island in Indonesia?",
-        correct_answer: "Java",
-        incorrect_answers: ["Python", "C", "Jakarta"],
+        question: "What does HTTP stand for?",
+        correct_answer: "HyperText Transfer Protocol",
+        incorrect_answers: [
+            "HyperText Transmission Protocol",
+            "HighText Transfer Protocol",
+            "HyperText Transfer Process",
+        ],
     },
     {
         category: "Science: Computers",
         type: "multiple",
         difficulty: "easy",
-        question:
-            "Which programming language shares its name with an island in Indonesia?",
-        correct_answer: "Java",
-        incorrect_answers: ["Python", "C", "Jakarta"],
+        question: "Which programming language is known as the language of the web?",
+        correct_answer: "JavaScript",
+        incorrect_answers: ["Python", "Java", "C++"],
     },
     {
         category: "Science: Computers",
         type: "multiple",
         difficulty: "easy",
-        question:
-            "Which programming language shares its name with an island in Indonesia?",
-        correct_answer: "Java",
-        incorrect_answers: ["Python", "C", "Jakarta"],
+        question: "What does RAM stand for?",
+        correct_answer: "Random Access Memory",
+        incorrect_answers: [
+            "Read Access Memory",
+            "Run Access Memory",
+            "Readily Available Memory",
+        ],
     },
     {
         category: "Science: Computers",
-        type: "multiple",
+        type: "boolean",
         difficulty: "easy",
-        question:
-            "Which programming language shares its name with an island in Indonesia?",
-        correct_answer: "Java",
-        incorrect_answers: ["Python", "C", "Jakarta"],
-    },
+        question: "The Linux operating system was created by Linus Torvalds.",
+        correct_answer: "True",
+        incorrect_answers: ["False"],
+    }
 ];
+
 
 const timer = document.getElementById('timer');
 const countQuestions = document.getElementById('countQuestions');
@@ -244,6 +266,8 @@ function intervalSet() {                                                        
             window.location.href = 'results.html';
 
         }
+
+       
     }, 10000);
 }
 
@@ -269,7 +293,6 @@ function timerCircle() {                                                        
 
 btnAvanti.addEventListener('click', function () {                                    /* FUNZIONE AL CLICK SUL BUTTON 'AVANTI', SERVE A CAMBIARE DOMANDA UNA VOLTA SELEZIONATA LA RISPOSTA */
     circle.style.animation = 'none';                                                 /* IL BUTTON è DISABILITATO DI DEFAULT. SI ATTIVA AL MOMENTO DEL CLICK SU UNA DELLE RISPOSTE */
-
     checkAnswer();
     if (i < questionsArray.length - 1) {
         i++;
@@ -280,7 +303,6 @@ btnAvanti.addEventListener('click', function () {                               
         countQuestions.innerHTML = '';
         displayCount();
         circle.style.animation = '10s circletimer linear infinite';
-
     } else {
         peppino = answersCorrect;
         let peppino1 = localStorage.setItem('peppino', peppino);
@@ -288,6 +310,7 @@ btnAvanti.addEventListener('click', function () {                               
         let giannino1 = localStorage.setItem('giannino', giannino);
         window.location.href = 'results.html';
     }
+
 
     clearInterval(count);
     timerCircle();
@@ -308,7 +331,7 @@ function quest() {                                                              
         answersDiv.innerHTML = risposte;
         answersDiv.classList.add('answersDiv');
         answersDiv.addEventListener('click', function () {                            /* QUESTO EVENTO CLICK SERVE A INSERIRE UNA CLASSE ALLA RISPOSTA SELEZIONATA */
-            unselect();                                                              
+            unselect();
             answersDiv.classList.add('click');
             btnAvanti.removeAttribute('disabled')
 
@@ -325,7 +348,7 @@ function checkAnswer() {                                                        
     }
 }
 
-function displayCount() {                                                                /* LA FUNZIONE MANDA A VIDEO IL NUNERO DELLA DOMANDA CORRENTE E IL TOTALE DELLE DOMANDE */   
+function displayCount() {                                                                /* LA FUNZIONE MANDA A VIDEO IL NUNERO DELLA DOMANDA CORRENTE E IL TOTALE DELLE DOMANDE */
     const pFoot = document.createElement('p');
     pFoot.innerHTML = 'QUESTION ' + (i + 1) + '<span> / ' + questions.length + '</span>';
     countQuestions.appendChild(pFoot);

@@ -181,8 +181,9 @@ form p {
 }
 
 .star {
+    color: #ffffff3a;
     display: inline-block;
-    font-size: 1.5em;
+    font-size: 1.8em;
     transition-duration: 0.3s;
 }
 
@@ -196,7 +197,7 @@ form p {
 }
 
 .rate i:hover ~ i {
-    color: #ffffff;
+    color: #cecece;
 }
 
 .rate:hover i {
@@ -214,6 +215,7 @@ form p {
 /* Colora tutte le stelle fino alla stella su cui si trova il mouse */
 
 #feedback {
+    color: white;
     width: 60rem;
     background-color: transparent;
     border: none;
