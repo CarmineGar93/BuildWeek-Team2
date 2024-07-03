@@ -174,7 +174,10 @@ form p {
     padding: 0 10px;
     text-align: center;
     margin-bottom: 7rem;
-    
+    /*display: flex;
+    flex-direction: row-reverse; 
+    align-items: center; 
+    justify-content: center; per far apparire in ordine inverso, Carmine*/
 
 }
 
@@ -192,15 +195,17 @@ form p {
     cursor: pointer;
     font-size: 75px; 
     color: #00FFFF;
+    /*color: white; Carmine*/
 }
 
 .rate:not(:checked)>label:before {
     content: '★ ';
 }
 
-/*.rate:not(:checked)>label:hover,*/ 
+/*.rate:not(:checked)>label:hover,*/
 /*eliminata questa regola per far apparire la stella blu con hover, Carmine*/
 .rate:not(:checked)>label:hover~label {
+    /*color: #00FFFF; Carmine*/
     color: white;
 }
 
