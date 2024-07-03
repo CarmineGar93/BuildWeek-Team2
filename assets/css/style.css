@@ -33,6 +33,10 @@ body {
     padding: 4% 8%;
 }
 
+#btnPromise {
+    cursor: po;
+}
+
 .mainFeed {
     margin: 2em auto;
     text-align: center;
@@ -232,7 +236,17 @@ form p {
     background-color: #fc1c8c;
 }
 
+#question {
+    margin: 0 10em;
+    line-height: 3em;
+    margin-top: 10em;
+}
 
+#question h1 {
+    font-size: 250%;
+    text-align: center;
+    /*LUCA questo lo vedi?*/
+}
 
 #countQuestions span {
     color: #C2158E;
@@ -255,7 +269,7 @@ form p {
 svg {
     background-color: transparent;
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 80%;
     transform: translate(-50%, -50%) rotateZ(-90deg);
 }
@@ -268,12 +282,13 @@ svg .circle {
     stroke-dashoffset: 500;
     stroke-dasharray: 0;
     animation: 10s circletimer linear infinite;
+    
 }
 
 #timer p {
     position: absolute;
     display: block;
-    top: 14.7%;
+    top: 10.5%;
     left: 80%;
     transform: translate(-50%, -50%);
     color: #ffffff;
@@ -290,31 +305,45 @@ svg .circle {
 
 }
 
+#answers {
+    text-align: center;
+    margin: 4.5rem;
+}
+
 .answersDiv {
     display: inline-block;
     text-align: center;
     align-content: center;
-    width: 350px;
+    width: calc(49% - 30px);
     height: 80px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 50px;
-    margin: 30px;
+    margin: 15px;
     user-select: none;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #54545428;
 }
 
 .answersDiv:hover {
-    background-color: rgba(255, 255, 255, 0.11);
+    /* QUANDO PASSI COL CURSORE */
+    /* background: rgb(2,0,36); */
+    background-color: rgba(106, 106, 106, 0.342);
 }
 
 .click {
-    background-color: #CB2376;
+    background: linear-gradient(173deg, #CC0092 0%, #b1009c 35%, #8A0079 100%);
 }
 
-.click:hover {
-    background-color: #fc1c8c;
-}
+/*.click:hover {
+    
+    background: #9c9c9c28;
+    ;
+    
+
+    ??^
+} */
 
 
 
@@ -322,6 +351,28 @@ svg .circle {
     color: #C2158E;
 }
 
+
+/* ----------- modifiche mockup domande 03 07 --------------- */
+
+#btnAvanti {
+    /* bottone per andare avanti nelle domande, Luca */
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 25px;
+    padding-left: 25px;
+    font-weight: bold;
+    float: right;
+    margin-right: 7%;
+}
+
+#center-prova {
+    text-align: center;
+    justify-content: center;
 
 .seconds,
 .remaining {
