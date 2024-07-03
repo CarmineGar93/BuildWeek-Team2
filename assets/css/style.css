@@ -198,7 +198,8 @@ form p {
     content: '★ ';
 }
 
-.rate:not(:checked)>label:hover,
+/*.rate:not(:checked)>label:hover,*/ 
+/*eliminata questa regola per far apparire la stella blu con hover, Carmine*/
 .rate:not(:checked)>label:hover~label {
     color: white;
 }
@@ -213,19 +214,6 @@ form p {
     margin: 1em 0;
     font-size: 23px;
     padding: 0.5em 2em;
-}
-
-
-
-
-.click:hover {
-    background-color: #fc1c8c;
-}
-
-
-
-#countQuestions span {
-    color: #C2158E;
 }
 
 /*css di javascript vediamo cosa tenere per forza e cosa modificare*/
