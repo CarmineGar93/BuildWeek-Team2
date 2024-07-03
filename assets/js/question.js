@@ -96,7 +96,92 @@ const questions = [
         correct_answer: "Java",
         incorrect_answers: ["Python", "C", "Jakarta"],
     },
+    {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "What does GPU stand for?",
+        correct_answer: "Graphics Processing Unit",
+        incorrect_answers: [
+            "Graphical Performance Unit",
+            "Graphics Performance Unit",
+            "Graphical Processor Unit",
+        ],
+    },
+    {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "Which company developed the JavaScript programming language?",
+        correct_answer: "Netscape",
+        incorrect_answers: ["Microsoft", "Sun Microsystems", "IBM"],
+    },
+    {
+        category: "Science: Computers",
+        type: "boolean",
+        difficulty: "easy",
+        question: "The Python programming language is named after a snake.",
+        correct_answer: "False",
+        incorrect_answers: ["True"],
+    },
+    {
+        category: "Science: Computers",
+        type: "boolean",
+        difficulty: "easy",
+        question: "HTML stands for HyperText Markup Language.",
+        correct_answer: "True",
+        incorrect_answers: ["False"],
+    },
+    {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "In which year was the Python 3.0 version released?",
+        correct_answer: "2008",
+        incorrect_answers: ["2000", "2010", "2015"],
+    },
+    {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "What does HTTP stand for?",
+        correct_answer: "HyperText Transfer Protocol",
+        incorrect_answers: [
+            "HyperText Transmission Protocol",
+            "HighText Transfer Protocol",
+            "HyperText Transfer Process",
+        ],
+    },
+    {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "Which programming language is known as the language of the web?",
+        correct_answer: "JavaScript",
+        incorrect_answers: ["Python", "Java", "C++"],
+    },
+    {
+        category: "Science: Computers",
+        type: "multiple",
+        difficulty: "easy",
+        question: "What does RAM stand for?",
+        correct_answer: "Random Access Memory",
+        incorrect_answers: [
+            "Read Access Memory",
+            "Run Access Memory",
+            "Readily Available Memory",
+        ],
+    },
+    {
+        category: "Science: Computers",
+        type: "boolean",
+        difficulty: "easy",
+        question: "The Linux operating system was created by Linus Torvalds.",
+        correct_answer: "True",
+        incorrect_answers: ["False"],
+    }
 ];
+
 
 const timer = document.getElementById('timer');
 const countQuestions = document.getElementById('countQuestions');
@@ -109,9 +194,9 @@ const pTimer = document.createElement('p');
 pTimer.innerText = 10;
 timer.appendChild(pTimer);
 
-const questionsArray = [];
-const answersArray = [];
-let random = [];
+const questionsArray = [];              /* VARIABILE CON ARRAY DI TUTTE LE DOMANDE PRESENTE NELL'ARRAY PRINCIPALE (questions) */
+const answersArray = [];                /* VARIABILE CON TUTTE LE RISPOSTE PRESENTE NELL'ARRAY PRINCIPALE (questions) */
+let random = [];                        /* VARIABILE PER RANDOMIZZARE LE RISPOSTE, SIA CORRETTE CHE INCORRETTE */
 
 let interval;
 let count;
@@ -121,11 +206,12 @@ const questionDiv = document.createElement('h1');
 
 let answersCorrect = 0;
 let peppino = 0;
+let giannino = 0;
 
 window.addEventListener('load', init())
 
 function init() {
-    questionDisplay();
+    arrayQuestions();
     quest();
     displayCount();
     disable();
@@ -135,7 +221,7 @@ function init() {
 
 
 
-function questionDisplay() {
+function arrayQuestions() {                                                        /* QUESTA FUNZIONE SERVE A POPOLARE I DUE ARRAY CON LE RISPETTIVE DOMANDE E RISPOSTE */
     for (let i = 0; i < questions.length; i++) {
         answersArray.push([]);
         answersArray[i].push(questions[i].correct_answer);
@@ -144,7 +230,7 @@ function questionDisplay() {
         }
     }
 
-    for (let i = 0; i < answersArray.length; i++) {
+    for (let i = 0; i < answersArray.length; i++) {                                  /* QUESTO CICLO RANDOMIZZA LE RISPOSTE ALL'INTERNO DEL SUO ARRAY */
         let random2 = [];
         for (let j = 0; j < answersArray[i].length; j++) {
             let random3 = Math.floor(Math.random() * answersArray[i].length);
@@ -162,7 +248,7 @@ function questionDisplay() {
     }
 }
 
-function intervalSet() {
+function intervalSet() {                                                               /* QUESTA FUNZIONE SERVE A CAMBIARE LE DOMANDE ALLO SCADERE DEL TEMPO IMPOSTATO, (esempio, 10s) */
     interval = setInterval(function () {
         if (i < questionsArray.length - 1) {
             i++;
@@ -174,15 +260,19 @@ function intervalSet() {
             displayCount();
         } else {
             peppino = answersCorrect;
-            let peppino1 = localStorage.setItem('peppino', peppino);
+            let peppino1 = localStorage.setItem('peppino', peppino);                      /* N.B. TENERE IN CONSIDERAZIONE PEPPINO */
+            giannino = questionsArray.length;
+            let giannino1 = localStorage.setItem('giannino', giannino);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
             window.location.href = 'results.html';
 
         }
+
+       
     }, 10000);
 }
 
 
-function timerCircle() {
+function timerCircle() {                                                        /* QUESTA FUNZIONE SERVE A VISUALIZZARE IL COUNTDOWN A VIDEO (esempio, 10s) */
     count = setInterval(function () {
 
         if (countdownBegin <= 0) {
@@ -201,9 +291,8 @@ function timerCircle() {
 
 
 
-btnAvanti.addEventListener('click', function () {
-    circle.style.animation = 'none';
-
+btnAvanti.addEventListener('click', function () {                                    /* FUNZIONE AL CLICK SUL BUTTON 'AVANTI', SERVE A CAMBIARE DOMANDA UNA VOLTA SELEZIONATA LA RISPOSTA */
+    circle.style.animation = 'none';                                                 /* IL BUTTON è DISABILITATO DI DEFAULT. SI ATTIVA AL MOMENTO DEL CLICK SU UNA DELLE RISPOSTE */
     checkAnswer();
     if (i < questionsArray.length - 1) {
         i++;
@@ -214,13 +303,14 @@ btnAvanti.addEventListener('click', function () {
         countQuestions.innerHTML = '';
         displayCount();
         circle.style.animation = '10s circletimer linear infinite';
-
     } else {
         peppino = answersCorrect;
-        console.log(peppino);
         let peppino1 = localStorage.setItem('peppino', peppino);
+        giannino = questionsArray.length;
+        let giannino1 = localStorage.setItem('giannino', giannino);
         window.location.href = 'results.html';
     }
+
 
     clearInterval(count);
     timerCircle();
@@ -231,7 +321,7 @@ btnAvanti.addEventListener('click', function () {
     intervalSet();
 })
 
-function quest() {
+function quest() {                                                                  /* QUESTA FUNZIONE FA VISUALIZZARE A VIDEO SIA LE DOMANDE CHE LE RISPETTIVE RISPOSTE */
     questionDiv.innerHTML = questionsArray[i];
     question.appendChild(questionDiv);
 
@@ -240,7 +330,7 @@ function quest() {
         const risposte = random[i][j];
         answersDiv.innerHTML = risposte;
         answersDiv.classList.add('answersDiv');
-        answersDiv.addEventListener('click', function () {
+        answersDiv.addEventListener('click', function () {                            /* QUESTO EVENTO CLICK SERVE A INSERIRE UNA CLASSE ALLA RISPOSTA SELEZIONATA */
             unselect();
             answersDiv.classList.add('click');
             btnAvanti.removeAttribute('disabled')
@@ -251,31 +341,28 @@ function quest() {
 }
 
 
-function checkAnswer() {
+function checkAnswer() {                                                                /* LA FUNZIONE VERIFICA SE LA RISPOSTA SELEZIONATA E CONFERMATA è QUELLA CORRETTA */
     const click = document.querySelector('.click').textContent
     if (click === questions[i].correct_answer) {
         answersCorrect++;
     }
-
-    console.log(click)
-    console.log(answersCorrect)
 }
 
-function displayCount() {
+function displayCount() {                                                                /* LA FUNZIONE MANDA A VIDEO IL NUNERO DELLA DOMANDA CORRENTE E IL TOTALE DELLE DOMANDE */
     const pFoot = document.createElement('p');
     pFoot.innerHTML = 'QUESTION ' + (i + 1) + '<span> / ' + questions.length + '</span>';
     countQuestions.appendChild(pFoot);
 }
 
 
-function unselect() {
+function unselect() {                                                                     /* QUESTA FUNZIONE RIMUOVE LA CLASSE AD UNA RISPOSTA PRECEDENTEMENTE SELEZIONATA */
     const selected = document.querySelector('.click');
     if (selected) {
         selected.classList.remove('click');
     }
 }
 
-function disable() {
+function disable() {                                                                       /* LA FUNZIONE DISABILITA IL BUTTON */
     btnAvanti.setAttribute('disabled', true)
 }
 

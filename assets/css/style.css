@@ -38,11 +38,13 @@ body {
 }
 
 .mainFeed {
+    margin: 2em auto;
     text-align: center;
     font-size: 1.8em;
 }
 
 .mainFeed p {
+    /* PROVA TEAM JS */
     margin: 2rem 10rem;
     font-weight: 100;
 }
@@ -183,35 +185,31 @@ form p {
 }
 
 .star {
+    color: #ffffff3a;
     display: inline-block;
-    font-size: 2em;
-    transition-duration: 0.8s;
-    vertical-align: middle;
+    font-size: 1.8em;
+    transition-duration: 0.3s;
 }
 
 
 .star:hover {
-    font-size: 2.3em;
+    transform: scale(1.2);
 }
 
-.rate p {
+.rate i {
     margin: 0;
-    padding: 2px;
 }
 
-.rate p,
-.rate p:hover~p {
-    color: #ffffff;
+.rate i:hover ~ i {
+    color: #cecece;
 }
 
-.rate:hover p {
+.rate:hover i {
     color: #00FFFF;
 }
 
-
-.rate p {
+.rate i {
     cursor: pointer;
-    font-style: normal;
 }
 
 .rate .clickStar {
@@ -221,6 +219,7 @@ form p {
 /* Colora tutte le stelle fino alla stella su cui si trova il mouse */
 
 #feedback {
+    color: white;
     width: 60rem;
     background-color: transparent;
     border: none;
@@ -273,11 +272,11 @@ svg {
     top: 15%;
     left: 80%;
     transform: translate(-50%, -50%) rotateZ(-90deg);
-
 }
 
+
 svg .circle {
-    stroke: rgba(188, 0, 84, 1);
+    stroke: #00FFFF;
     stroke-width: 20;
     fill: transparent;
     stroke-dashoffset: 500;
@@ -292,16 +291,17 @@ svg .circle {
     top: 10.5%;
     left: 80%;
     transform: translate(-50%, -50%);
-    color: rgba(188, 0, 84, 1);
-    font-size: 42px;
+    color: #ffffff;
+    font-size: 50px;
     font-weight: 700;
 }
 
 
 
+
 #myDoughnutChart {
-    max-width: 300px;
-    max-height: 300px;
+    width: 400px !important;
+    height: 400px !important;
 
 }
 
@@ -351,6 +351,7 @@ svg .circle {
     color: #C2158E;
 }
 
+
 /* ----------- modifiche mockup domande 03 07 --------------- */
 
 #btnAvanti {
@@ -372,4 +373,18 @@ svg .circle {
 #center-prova {
     text-align: center;
     justify-content: center;
+
+.seconds,
+.remaining {
+    font-size: 0.8em;
+    position: absolute;
+    left: 78.2%;
+}
+
+.seconds {
+    top: 14%;
+}
+
+.remaining {
+    top: 22%;
 }
