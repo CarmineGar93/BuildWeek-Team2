@@ -34,11 +34,13 @@ body {
 }
 
 .mainFeed {
+    margin: 2em auto;
     text-align: center;
     font-size: 1.8em;
 }
 
 .mainFeed p {
+    /* PROVA TEAM JS */
     margin: 2rem 10rem;
     font-weight: 100;
 }
@@ -124,7 +126,7 @@ ul {
     padding-right: 2.5em;
 }
 
-input[type="checkbox"] { 
+input[type="checkbox"] {
     opacity: 0;
     position: relative;
     left: 25px;
@@ -180,34 +182,29 @@ form p {
 
 .star {
     display: inline-block;
-    font-size: 2em;
-    transition-duration: 0.8s;
-    vertical-align: middle;
+    font-size: 1.5em;
+    transition-duration: 0.3s;
 }
 
 
 .star:hover {
-    font-size: 2.3em;
+    transform: scale(1.2);
 }
 
-.rate p {
+.rate i {
     margin: 0;
-    padding: 2px;
 }
 
-.rate p,
-.rate p:hover~p {
+.rate i:hover ~ i {
     color: #ffffff;
 }
 
-.rate:hover p {
+.rate:hover i {
     color: #00FFFF;
 }
 
-
-.rate p {
+.rate i {
     cursor: pointer;
-    font-style: normal;
 }
 
 .rate .clickStar {
@@ -259,11 +256,11 @@ svg {
     top: 20%;
     left: 80%;
     transform: translate(-50%, -50%) rotateZ(-90deg);
-
 }
 
+
 svg .circle {
-    stroke: rgba(188, 0, 84, 1);
+    stroke: #00FFFF;
     stroke-width: 20;
     fill: transparent;
     stroke-dashoffset: 500;
@@ -274,18 +271,20 @@ svg .circle {
 #timer p {
     position: absolute;
     display: block;
-    top: 15.5%;
+    top: 14.7%;
     left: 80%;
     transform: translate(-50%, -50%);
-    color: rgba(188, 0, 84, 1);
-    font-size: 42px;
+    color: #ffffff;
+    font-size: 50px;
     font-weight: 700;
 }
 
 
+
+
 #myDoughnutChart {
-    max-width: 300px;
-    max-height: 300px;
+    width: 400px !important;
+    height: 400px !important;
 
 }
 
@@ -319,4 +318,20 @@ svg .circle {
 
 #countQuestions span {
     color: #C2158E;
+}
+
+
+.seconds,
+.remaining {
+    font-size: 0.8em;
+    position: absolute;
+    left: 78.2%;
+}
+
+.seconds {
+    top: 14%;
+}
+
+.remaining {
+    top: 22%;
 }

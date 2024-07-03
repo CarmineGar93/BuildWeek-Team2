@@ -1,6 +1,8 @@
 const star = document.querySelectorAll('.star');
 
 
+let starValue;
+
 for (let i = 0; i < star.length; i++) {
     star[i].addEventListener('click', function () {
         unselect();
@@ -8,8 +10,10 @@ for (let i = 0; i < star.length; i++) {
             star[j].classList.add('clickStar');
 
         }
-        let starValue = document.querySelectorAll('.clickStar').length;
-        console.log(starValue)
+        starValue = document.querySelectorAll('.clickStar').length;
+        moreInfoDisable();
+        console.log(starValue);
+
     })
 
 }
@@ -23,3 +27,38 @@ function unselect() {
         }
     }
 }
+
+const formMoreInfo = document.getElementById('formMoreInfo')
+const moreInfo = document.getElementById('moreInfo');
+const feedback = document.getElementById('feedback');
+
+
+moreInfo.setAttribute('disabled', true);
+
+function moreInfoDisable(){
+    if(starValue !== 0) {
+        moreInfo.removeAttribute('disabled');
+    } else {
+        moreInfo.setAttribute('disabled', true);
+    }
+}
+
+moreInfo.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.alert(`${starValue} ${feedback.value}`)
+    unselect();
+    formMoreInfo.reset();
+})
+
+
+function overMouse() {
+    for (let i = 0; i < star.length; i++) {
+        star[i].addEventListener('mouseover', function () {
+            unselect();
+            starValue = 0;
+            moreInfoDisable()
+        })
+    }
+}
+
+overMouse();

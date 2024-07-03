@@ -1,45 +1,52 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Questions</title>
-  </head>
 
-  <body class="bodyDiv">
-    <header>
-        <div>
-            <img src="assets/img/epicode_logo.png" alt="Logo-Epicode"  class="logo"> <!-- LOGO EPICODE -->
-        </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Questions</title>
+</head>
 
-    <main>
+<body class="bodyDiv">
+  <header>
+    <div>
+      <img src="assets/img/epicode_logo.png" alt="Logo-Epicode" class="logo"> <!-- LOGO EPICODE -->
+    </div>
+  </header>
+
+  <main>
+    <div>
       <div id="timer"><svg width="200" height="200">
-        <circle class="circle" cx="100" cy="100" r="80"  />
+        <circle class="circle" cx="100" cy="100" r="80" />
       </svg>
     </div>
-      <!-- TIMER AD OGNI DOMANDA -->
-      
+    <p class="seconds">SECONDS</p>
+    <p class="remaining">REMAINING</p>
+    </div>
+    
+    <!-- TIMER AD OGNI DOMANDA -->
 
-      <section>
-        <!-- SECTION PER LE DOMANDE -->
-        <div id="question"></div>
-        <!-- CONTENITORE PER LA DOMANDA -->
 
-        <div id="answers"></div>
-        <!-- CONTENITORE PER LE RISPOSTE -->
-      </section>
+    <section>
+      <!-- SECTION PER LE DOMANDE -->
+      <div id="question"></div>
+      <!-- CONTENITORE PER LA DOMANDA -->
 
-      <div>
-        <button type="button" id="btnAvanti">AVANTI</button>
-        <!-- BUTTON PER AVANZARE LE DOMANDE -->
-      </div>
+      <div id="answers"></div>
+      <!-- CONTENITORE PER LE RISPOSTE -->
+    </section>
 
-      <div id="countQuestions"></div>
-      <!-- CONTATORE DI DOMANDE -->
-    </main>
+    <div>
+      <button type="button" id="btnAvanti">AVANTI</button>
+      <!-- BUTTON PER AVANZARE LE DOMANDE -->
+    </div>
 
-    <script src="assets/js/question.js"></script>
-  </body>
+    <div id="countQuestions"></div>
+    <!-- CONTATORE DI DOMANDE -->
+  </main>
+
+  <script src="assets/js/question.js"></script>
+</body>
+
 </html>
