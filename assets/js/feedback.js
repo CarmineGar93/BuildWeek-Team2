@@ -34,12 +34,16 @@ const feedback = document.getElementById('feedback');
 
 
 moreInfo.setAttribute('disabled', true);
+moreInfo.style.opacity = '0.5'
 
 function moreInfoDisable(){
     if(starValue !== 0) {
         moreInfo.removeAttribute('disabled');
+        moreInfo.style.opacity = '1'
     } else {
         moreInfo.setAttribute('disabled', true);
+        moreInfo.style.opacity = '0.5';
+        
     }
 }
 
@@ -48,6 +52,7 @@ moreInfo.addEventListener('click', function (e) {
     window.alert(`${starValue} ${feedback.value}`)
     unselect();
     formMoreInfo.reset();
+    moreInfo.style.opacity = '0.5';
 })
 
 
@@ -57,6 +62,7 @@ function overMouse() {
             unselect();
             starValue = 0;
             moreInfoDisable()
+            
         })
     }
 }

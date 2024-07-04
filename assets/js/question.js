@@ -205,7 +205,6 @@ let index = 0;
 
 
 let answersCorrect = 0;
-let peppino = 0;
 let giannino = 0;
 
 window.addEventListener('load', init())
@@ -232,9 +231,9 @@ btnAvanti.addEventListener('click', function () {                               
         displayCount();
         circle.style.animation = '10s circletimer linear infinite';
     } else {
-        peppino = localStorage.setItem('peppino', answersCorrect);
+        localStorage.setItem('peppino', answersCorrect);
         giannino = questionsArray.length;
-        let giannino1 = localStorage.setItem('giannino', giannino);
+        localStorage.setItem('giannino', giannino);
         window.location.href = 'results.html';
     }
     
@@ -285,9 +284,9 @@ function intervalSet() {                                                        
             countQuestions.innerHTML = '';
             displayCount();
         } else {
-            peppino = localStorage.setItem('peppino', answersCorrect);                      /* N.B. TENERE IN CONSIDERAZIONE PEPPINO */
+            localStorage.setItem('peppino', answersCorrect);                      /* N.B. TENERE IN CONSIDERAZIONE PEPPINO */
             giannino = questionsArray.length;
-            let giannino1 = localStorage.setItem('giannino', giannino);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
+            localStorage.setItem('giannino', giannino);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
             window.location.href = 'results.html';
         }
     }, 10000);
@@ -319,7 +318,8 @@ function quest() {                                                              
         const risposte = random[index][j];
         answersDiv.innerHTML = risposte;
         answersDiv.classList.add('answersDiv');
-        answersDiv.addEventListener('click', function () {                            /* QUESTO EVENTO CLICK SERVE A INSERIRE UNA CLASSE ALLA RISPOSTA SELEZIONATA */
+        answersDiv.addEventListener('click', function () {    
+            btnAvanti.style.opacity = '1'                                                /* QUESTO EVENTO CLICK SERVE A INSERIRE UNA CLASSE ALLA RISPOSTA SELEZIONATA */
             unselect();
             answersDiv.classList.add('click');
             btnAvanti.removeAttribute('disabled')
@@ -352,6 +352,7 @@ function unselect() {                                                           
 
 function disable() {                                                                       /* LA FUNZIONE DISABILITA IL BUTTON */
     btnAvanti.setAttribute('disabled', true)
+    btnAvanti.style.opacity = '0.5'
 }
 
 

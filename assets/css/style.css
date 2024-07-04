@@ -29,6 +29,7 @@ body {
 
 #btnPromise {
     cursor: pointer;
+    transition-duration: 0.3s;
 }
 
 .mainFeed {
@@ -132,6 +133,7 @@ ul {
     box-shadow: 0px 0px 21px 7px rgba(43, 210, 255, 0.5);
     padding-left: 2.5em;
     padding-right: 2.5em;
+    transition-duration: 0.3s;
 }
 
 input[type="checkbox"] {
@@ -311,6 +313,7 @@ form p {
     padding-left: 25px;
     font-weight: bold;
     margin-right: 7%;
+    transition-duration: 0.3s;
 }
 
 .rateUs {
@@ -460,8 +463,8 @@ svg .circle {
 .confetti {
     position: fixed;
     top: 0;
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
     background: red;
     opacity: 0.9;
     animation: fall linear infinite;
@@ -493,12 +496,45 @@ svg .circle {
     font-size: 0.8em;
 }
 
+
 .absolute {
     position: absolute;
     width: 720px;
     height: 405px;
-    left: 31%;
+    right: 2%;
+    bottom: 60%;
+    transform: scale(0.5);
 }
+
+.absolute:before, .block:after {
+	content: '';
+	position: absolute;
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 5px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+
+
+
 
 #certificazioneDiv {
     position: relative;
@@ -506,7 +542,6 @@ svg .circle {
     height: 405px;
     margin: 0;
     padding: 0;
-    opacity: 0.2;
 }
 
 #certificato {

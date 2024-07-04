@@ -115,7 +115,6 @@ function generatePDF() {
     };
 
     html2pdf().from(element).set(opt).save();
-    element.style.opacity = '1';
 }
 
 const generatePDFButton = document.getElementById('generatePDF');
