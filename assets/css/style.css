@@ -82,7 +82,8 @@ span {
     font-size: 1.5em;
 }
 
-main .logo-img {
+main 
+.logo-img {
     /* margini da applicare presumibilmente a tutte le pagine, Luca */
     margin-left: 7%;
     margin-top: 3%;
@@ -304,6 +305,7 @@ form p {
 }
 
 .rateUs {
+    /* bottone per andare avanti nelle domande, Luca */
     border: 1px solid white;
     background-color: transparent;
     color: white;
@@ -427,6 +429,7 @@ svg .circle {
 
 .inline {
     margin-bottom: 50px;
+    text-align: center;
 }
 
 
