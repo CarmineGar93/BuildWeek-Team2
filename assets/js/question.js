@@ -185,11 +185,11 @@ const questions = [
 
 const timer = document.getElementById('timer');
 const countQuestions = document.getElementById('countQuestions');
-
 const btnAvanti = document.getElementById('btnAvanti');
 const question = document.getElementById('question');
 const answers = document.getElementById('answers');
 const circle = document.getElementsByClassName('circle')[0];
+const questionDiv = document.createElement('h1');
 const pTimer = document.createElement('p');
 pTimer.innerText = 10;
 timer.appendChild(pTimer);
@@ -201,8 +201,8 @@ let random = [];                        /* VARIABILE PER RANDOMIZZARE LE RISPOST
 let interval;
 let count;
 let countdownBegin = 9;
-let i = 0;
-const questionDiv = document.createElement('h1');
+let index = 0;
+
 
 let answersCorrect = 0;
 let peppino = 0;
@@ -219,7 +219,33 @@ function init() {
     timerCircle();
 }
 
-
+btnAvanti.addEventListener('click', function () {                                    /* FUNZIONE AL CLICK SUL BUTTON 'AVANTI', SERVE A CAMBIARE DOMANDA UNA VOLTA SELEZIONATA LA RISPOSTA */
+    circle.style.animation = 'none';                                                 /* IL BUTTON è DISABILITATO DI DEFAULT. SI ATTIVA AL MOMENTO DEL CLICK SU UNA DELLE RISPOSTE */
+    checkAnswer();
+    if (index < questionsArray.length - 1) {
+        index++;
+        questionDiv.innerHTML = '';
+        answers.innerHTML = '';
+        disable();
+        quest();
+        countQuestions.innerHTML = '';
+        displayCount();
+        circle.style.animation = '10s circletimer linear infinite';
+    } else {
+        peppino = localStorage.setItem('peppino', answersCorrect);
+        giannino = questionsArray.length;
+        let giannino1 = localStorage.setItem('giannino', giannino);
+        window.location.href = 'results.html';
+    }
+    
+    clearInterval(count);
+    timerCircle();
+    clearInterval(interval);
+    pTimer.innerText = 10;
+    timer.appendChild(pTimer);
+    countdownBegin = 9;
+    intervalSet();
+})
 
 function arrayQuestions() {                                                        /* QUESTA FUNZIONE SERVE A POPOLARE I DUE ARRAY CON LE RISPETTIVE DOMANDE E RISPOSTE */
     for (let i = 0; i < questions.length; i++) {
@@ -250,8 +276,8 @@ function arrayQuestions() {                                                     
 
 function intervalSet() {                                                               /* QUESTA FUNZIONE SERVE A CAMBIARE LE DOMANDE ALLO SCADERE DEL TEMPO IMPOSTATO, (esempio, 10s) */
     interval = setInterval(function () {
-        if (i < questionsArray.length - 1) {
-            i++;
+        if (index < questionsArray.length - 1) {
+            index++;
             questionDiv.innerHTML = '';
             answers.innerHTML = '';
             disable();
@@ -259,15 +285,11 @@ function intervalSet() {                                                        
             countQuestions.innerHTML = '';
             displayCount();
         } else {
-            peppino = answersCorrect;
-            let peppino1 = localStorage.setItem('peppino', peppino);                      /* N.B. TENERE IN CONSIDERAZIONE PEPPINO */
+            peppino = localStorage.setItem('peppino', answersCorrect);                      /* N.B. TENERE IN CONSIDERAZIONE PEPPINO */
             giannino = questionsArray.length;
             let giannino1 = localStorage.setItem('giannino', giannino);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
             window.location.href = 'results.html';
-
         }
-
-       
     }, 10000);
 }
 
@@ -285,56 +307,22 @@ function timerCircle() {                                                        
             timer.appendChild(pTimer);
             --countdownBegin;
         }
-
     }, 1000);
 }
 
 
-
-btnAvanti.addEventListener('click', function () {                                    /* FUNZIONE AL CLICK SUL BUTTON 'AVANTI', SERVE A CAMBIARE DOMANDA UNA VOLTA SELEZIONATA LA RISPOSTA */
-    circle.style.animation = 'none';                                                 /* IL BUTTON è DISABILITATO DI DEFAULT. SI ATTIVA AL MOMENTO DEL CLICK SU UNA DELLE RISPOSTE */
-    checkAnswer();
-    if (i < questionsArray.length - 1) {
-        i++;
-        questionDiv.innerHTML = '';
-        answers.innerHTML = '';
-        disable();
-        quest();
-        countQuestions.innerHTML = '';
-        displayCount();
-        circle.style.animation = '10s circletimer linear infinite';
-    } else {
-        peppino = answersCorrect;
-        let peppino1 = localStorage.setItem('peppino', peppino);
-        giannino = questionsArray.length;
-        let giannino1 = localStorage.setItem('giannino', giannino);
-        window.location.href = 'results.html';
-    }
-
-
-    clearInterval(count);
-    timerCircle();
-    clearInterval(interval);
-    pTimer.innerText = 10;
-    timer.appendChild(pTimer);
-    countdownBegin = 9;
-    intervalSet();
-})
-
 function quest() {                                                                  /* QUESTA FUNZIONE FA VISUALIZZARE A VIDEO SIA LE DOMANDE CHE LE RISPETTIVE RISPOSTE */
-    questionDiv.innerHTML = questionsArray[i];
+    questionDiv.innerHTML = questionsArray[index];
     question.appendChild(questionDiv);
-
-    for (let j = 0; j < random[i].length; j++) {
+    for (let j = 0; j < random[index].length; j++) {
         const answersDiv = document.createElement('p');
-        const risposte = random[i][j];
+        const risposte = random[index][j];
         answersDiv.innerHTML = risposte;
         answersDiv.classList.add('answersDiv');
         answersDiv.addEventListener('click', function () {                            /* QUESTO EVENTO CLICK SERVE A INSERIRE UNA CLASSE ALLA RISPOSTA SELEZIONATA */
             unselect();
             answersDiv.classList.add('click');
             btnAvanti.removeAttribute('disabled')
-
         })
         answers.appendChild(answersDiv);
     }
@@ -343,14 +331,14 @@ function quest() {                                                              
 
 function checkAnswer() {                                                                /* LA FUNZIONE VERIFICA SE LA RISPOSTA SELEZIONATA E CONFERMATA è QUELLA CORRETTA */
     const click = document.querySelector('.click').textContent
-    if (click === questions[i].correct_answer) {
+    if (click === questions[index].correct_answer) {
         answersCorrect++;
     }
 }
 
 function displayCount() {                                                                /* LA FUNZIONE MANDA A VIDEO IL NUNERO DELLA DOMANDA CORRENTE E IL TOTALE DELLE DOMANDE */
     const pFoot = document.createElement('p');
-    pFoot.innerHTML = 'QUESTION ' + (i + 1) + '<span> / ' + questions.length + '</span>';
+    pFoot.innerHTML = 'QUESTION ' + (index + 1) + '<span> / ' + questions.length + '</span>';
     countQuestions.appendChild(pFoot);
 }
 
