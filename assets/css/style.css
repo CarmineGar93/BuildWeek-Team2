@@ -1,22 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
 * {
-    font-family: "Inter", sans-serif;
     /* font fornito dal prof, Luca */
-    font-weight: 100;
+    font-weight: 400;
     /* grossezza del testo per differenziarlo dal grasstto, Luca */
+    font-family: "Inter", sans-serif;
 }
 
-@font-face {
-    font-family: "Inter";
-    src: url("/assets/font/Inter-Regular.ttf") format("regular");
-    src: url("/assets/font/Inter-Black.ttf") format("black");
-    src: url("/assets/font/Inter-Bold.ttf") format("bold");
-    src: url("/assets/font/Inter-Light.ttf") format("light");
-    src: url("/assets/font/Inter-Medium.ttf") format("medium");
-    src: url("/assets/font/Inter-Thin.ttf") format("thin");
 
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 body {
     background-image: url("../img/bg.jpg");
@@ -34,7 +28,7 @@ body {
 }
 
 #btnPromise {
-    cursor: po;
+    cursor: pointer;
 }
 
 .mainFeed {
@@ -61,11 +55,12 @@ span {
     /* ogni span sara grassetto, Luca */
 }
 
-
+.title-first-page span,
 .title-first-page {
     /* formattazione titolo pagina principale */
     font-size: 120px;
     line-height: 100px;
+    font-family: "Outfit", sans-serif;
 
 }
 
@@ -87,8 +82,7 @@ span {
     font-size: 1.5em;
 }
 
-main,
-.logo-img {
+main .logo-img {
     /* margini da applicare presumibilmente a tutte le pagine, Luca */
     margin-left: 7%;
     margin-top: 3%;
@@ -200,7 +194,7 @@ form p {
     margin: 0;
 }
 
-.rate i:hover ~ i {
+.rate i:hover~i {
     color: #cecece;
 }
 
@@ -243,7 +237,7 @@ form p {
 }
 
 #question h1 {
-    font-size: 250%;
+    font-size: 300%;
     text-align: center;
     /*LUCA questo lo vedi?*/
 }
@@ -252,58 +246,6 @@ form p {
     color: #C2158E;
 }
 
-/*css di javascript vediamo cosa tenere per forza e cosa modificare*/
-
-@keyframes circletimer {
-    0% {
-        stroke-dashoffset: 500;
-        stroke-dasharray: 500;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-        stroke-dasharray: 500;
-    }
-}
-
-svg {
-    background-color: transparent;
-    position: absolute;
-    top: 15%;
-    left: 80%;
-    transform: translate(-50%, -50%) rotateZ(-90deg);
-}
-
-
-svg .circle {
-    stroke: #00FFFF;
-    stroke-width: 20;
-    fill: transparent;
-    stroke-dashoffset: 500;
-    stroke-dasharray: 0;
-    animation: 10s circletimer linear infinite;
-    
-}
-
-#timer p {
-    position: absolute;
-    display: block;
-    top: 10.5%;
-    left: 80%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    font-size: 50px;
-    font-weight: 700;
-}
-
-
-
-
-#myDoughnutChart {
-    width: 400px !important;
-    height: 400px !important;
-
-}
 
 #answers {
     text-align: center;
@@ -336,14 +278,6 @@ svg .circle {
     background: linear-gradient(173deg, #CC0092 0%, #b1009c 35%, #8A0079 100%);
 }
 
-/*.click:hover {
-    
-    background: #9c9c9c28;
-    ;
-    
-
-    ??^
-} */
 
 
 
@@ -351,10 +285,10 @@ svg .circle {
     color: #C2158E;
 }
 
-
 /* ----------- modifiche mockup domande 03 07 --------------- */
 
-#btnAvanti {
+
+.btnAvanti {
     /* bottone per andare avanti nelle domande, Luca */
     border: 1px solid white;
     background-color: transparent;
@@ -366,25 +300,204 @@ svg .circle {
     padding-right: 25px;
     padding-left: 25px;
     font-weight: bold;
-    float: right;
     margin-right: 7%;
 }
 
-#center-prova {
-    text-align: center;
+.rateUs {
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 25px;
+    padding-left: 25px;
+    font-weight: bold;
+}
+
+#btnAvanti {
+    float: right;
+}
+
+@keyframes circletimer {
+    0% {
+        stroke-dashoffset: 500;
+        stroke-dasharray: 500;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: 500;
+    }
+}
+
+#timer p {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+
+.timerCircle {
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+}
+
+svg {
+    background-color: transparent;
+    transform: rotateZ(-90deg);
+}
+
+svg .circle {
+    stroke: #00FFFF;
+    stroke-width: 20;
+    fill: transparent;
+    stroke-dashoffset: 500;
+    stroke-dasharray: 0;
+    animation: 10s circletimer linear infinite;
+}
 
 .seconds,
 .remaining {
     font-size: 0.8em;
     position: absolute;
-    left: 78.2%;
 }
 
 .seconds {
-    top: 14%;
+    top: 20%;
 }
 
 .remaining {
-    top: 22%;
+    top: 60%;
+}
+
+#graphicResults{
+    position: relative;
+    margin-left: 10px;
+}
+
+#textResults p,
+#textResults h4 {
+    margin: 0;
+}
+
+#textResults h4{
+    font-size: 1.1em;
+}
+
+#textResults p {
+    margin: 30px 85px 0 85px;
+}
+
+#textResults {
+    position: absolute;
+    bottom: 27%;
+    font-size: 0.6em;
+}
+
+
+.resultsText {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.resultsText h2 {
+    font-family: "Outfit", sans-serif;
+}
+
+
+#myDoughnutChart {
+    width: 400px !important;
+    height: 400px !important;
+}
+
+
+.inline {
+    margin-bottom: 50px;
+}
+
+
+
+
+/* prove per il html2pdf */
+
+#name1 {
+    width: 20%;
+    height: 3vh;
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    align-self: left;
+    border-bottom: #C2158E solid 2px;
+    margin: 1em 0;
+    font-size: 1.2em;
+}
+
+#name1::placeholder {
+    padding-left: 10px;
+    font-size: 0.8em;
+}
+
+.absolute {
+    position: relative;
+    width: 720px;
+    height: 405px;
+}
+
+#certificazioneDiv {
+    position: relative;
+    width: 720px;
+    height: 405px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    opacity: 0.2;
+}
+
+#certificato {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+#nameCertificato {
+    font-size: 2.5em;
+    position: absolute;
+    top: 30%;
+    left: 9.5%;
+}
+
+#dateCertificato {
+    position: absolute;
+    top: 74%;
+    left: 9.5%;
+}
+
+#generatePDF {
+    cursor: pointer;
+    font-size: 2.5em;
+    position: relative;
+    bottom: 80%;
+    left: 50%;
+    transition-duration: 0.3s;
+}
+
+#generatePDF:hover {
+    transform: scale(1.3);
 }

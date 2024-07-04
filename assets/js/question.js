@@ -264,9 +264,7 @@ function intervalSet() {                                                        
             giannino = questionsArray.length;
             let giannino1 = localStorage.setItem('giannino', giannino);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
             window.location.href = 'results.html';
-
         }
-
        
     }, 10000);
 }

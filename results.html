@@ -16,35 +16,49 @@
         </div>
     </header>
 
-    <main>
+    <main class="mainFeed">
 
         <div class="title_allPages">
             <h1>Results</h1>
             <h2>The summary of yours answers:</h2>
         </div>
 
-        <div>
-            <div id="correctAswers">
-                <h2>Correct</h2>
+        <div class="inline">
+            <div class="resultsText">
+                <div id="correctAswers">
+                    <h2>Correct</h2>
+                </div>
             </div>
-        </div>
 
-        <div id="graphicResults">
-            <canvas id="myDoughnutChart"></canvas>
+            <div id="graphicResults" class="resultsText">
+                <canvas id="myDoughnutChart"></canvas>
 
-            <div id="textResults"></div>
+                <div id="textResults"></div>
 
-        </div>
-        <div>
-            <div id="wrongAnswers">
-                <h2>Wrong</h2>
+            </div>
+            <div class="resultsText">
+                <div id="wrongAnswers">
+                    <h2>Wrong</h2>
+                </div>
             </div>
         </div>
 
         <form action="feedback.html">
-            <button type="submit" id="rateUs">RATE US</button>
+            <button type="submit" id="rateUs" class="rateUs">RATE US</button>
         </form>
     </main>
+
+    <div class="absolute" id="absolute">
+        <div id="certificazioneDiv">
+            <img src="assets/img/Certificato-01.png" alt="certificato" id="certificato">
+            <p id="nameCertificato"></p>
+            <p id="dateCertificato"></p>
+
+        </div>
+        <i class="fa-solid fa-download" id="generatePDF"></i>
+    </div>
+
+
     <script src="assets/js/result.js"></script>
 </body>
 
