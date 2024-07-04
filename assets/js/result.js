@@ -12,7 +12,7 @@ const myPieChart = new Chart(ctx, {
         datasets: [{
             data: [((100 / giannino1) * (giannino1 - peppino1)).toFixed(1), ((100 / giannino1) * peppino1).toFixed(1)],
             backgroundColor: [
-                '#C2128D',
+                '#D20094',
                 '#00FFFF',
             ],
             borderWidth: 0
@@ -28,6 +28,7 @@ const myPieChart = new Chart(ctx, {
 
 const correctAswers = document.getElementById('correctAswers');
 const percentualeCorrect = document.createElement('h2');
+percentualeCorrect.style.fontWeight = 'bolder';
 const pCounterQuestions = document.createElement('p');
 
 percentualeCorrect.innerHTML = `${((100 / giannino1) * peppino1).toFixed(1)}%`;
@@ -39,6 +40,7 @@ correctAswers.appendChild(pCounterQuestions);
 
 const wrongAnswers = document.getElementById('wrongAnswers');
 const percentualeWrong = document.createElement('h2');
+percentualeWrong.style.fontWeight = 'bolder';
 const pCounterQuestionsWrong = document.createElement('p');
 
 percentualeWrong.innerHTML = `${((100 / giannino1) * (giannino1 - peppino1)).toFixed(1)}%`;;
@@ -66,11 +68,10 @@ if (((100 / giannino1) * peppino1) >= 60) {
     textResultsP.innerHTML = `We'll send you the certificate in few minutes.
 Check your email (including promotions / spam folder)`;
 } else {
-    textResultsTitle.innerHTML = 'Congratulations!';
-    textResultsSubTitle.innerHTML = 'You passed the exam.';
-    textResultsSubTitle.style.color = '#00FFFF';
-    textResultsP.innerHTML = `We'll send you the certificate in few minutes.
-    Check your email (including promotions / spam folder)`;
+    textResultsTitle.innerHTML = 'Wrong!';
+    textResultsSubTitle.innerHTML = 'You failed the exam.';
+    textResultsSubTitle.style.color = '#D20094';
+    textResultsP.innerHTML = `You will not receive any certificate. You will be contacted for the oral exam. GOAT!`;
 }
 
 
@@ -108,8 +109,8 @@ function generatePDF() {
     const opt = {
         margin: [0, 0, 0, 0],
         filename: `certificato_${input1}`,
-        image: { type: 'jpeg', quality: 1 },
-        html2canvas: { scale: 2, useCORS: true },
+        image: { type: 'png', quality: 1 },
+        html2canvas: { scale: 1, useCORS: true },
         jsPDF: { unit: 'mm', format: [mmWidth, mmHeight], orientation: 'landscape' }
     };
 
@@ -132,6 +133,27 @@ if (correct <= 60) {
     absolute.style.display = 'none'
 } else {
     absolute.style.display = ''
+    window.onload = startConfetti;
 }
+
+
+function createConfetti() {
+    const confetti = document.createElement('div');
+    const header = document.getElementsByTagName('header')[0];
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+    header.appendChild(confetti);
+
+    setTimeout(() => {
+        confetti.remove();
+    }, 5000);
+}
+
+function startConfetti() {
+    setInterval(createConfetti, 100);
+}
+
 
 

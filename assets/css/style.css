@@ -67,8 +67,18 @@ span {
 .title_allPages h1 {
     font-size: 60px;
     font-weight: bold;
-    line-height: 30px;
+    line-height: 0px;
 }
+
+.title_allPages h2 {
+    font-size: 1.15em;
+    font-family: "Outfit", sans-serif;
+}
+
+.title_allPages {
+    margin-bottom: 50px;
+}
+
 
 #instructions {
     color: #C2158E;
@@ -82,8 +92,7 @@ span {
     font-size: 1.5em;
 }
 
-main 
-.logo-img {
+main .logo-img {
     /* margini da applicare presumibilmente a tutte le pagine, Luca */
     margin-left: 7%;
     margin-top: 3%;
@@ -307,14 +316,16 @@ form p {
 .rateUs {
     /* bottone per andare avanti nelle domande, Luca */
     border: 1px solid white;
-    background-color: transparent;
+    background-color: #0b113b1e;
+    -webkit-box-shadow: 0px 0px 21px 7px rgba(43, 210, 255, 0.2);
+    box-shadow: 0px 0px 21px 7px rgba(43, 210, 255, 0.2);
     color: white;
     cursor: pointer;
     font-size: 25px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 60px;
+    padding-left: 60px;
     font-weight: bold;
 }
 
@@ -385,9 +396,8 @@ svg .circle {
     top: 60%;
 }
 
-#graphicResults{
+#graphicResults {
     position: relative;
-    margin-left: 10px;
 }
 
 #textResults p,
@@ -395,7 +405,7 @@ svg .circle {
     margin: 0;
 }
 
-#textResults h4{
+#textResults h4 {
     font-size: 1.1em;
 }
 
@@ -409,11 +419,21 @@ svg .circle {
     font-size: 0.6em;
 }
 
+.resultsText h2 {
+    font-size: 2em;
+    margin: 0;
+    line-height: 60px;
+}
+
+.resultsText p {
+    margin: 0;
+}
 
 .resultsText {
     display: inline-block;
     vertical-align: middle;
     text-align: center;
+    margin: 0 80px;
 }
 
 .resultsText h2 {
@@ -428,12 +448,30 @@ svg .circle {
 
 
 .inline {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     text-align: center;
 }
 
 
 
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background: red;
+    opacity: 0.9;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
 
 /* prove per il html2pdf */
 
@@ -456,9 +494,10 @@ svg .circle {
 }
 
 .absolute {
-    position: relative;
+    position: absolute;
     width: 720px;
     height: 405px;
+    left: 31%;
 }
 
 #certificazioneDiv {
@@ -467,7 +506,6 @@ svg .circle {
     height: 405px;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     opacity: 0.2;
 }
 
@@ -480,23 +518,24 @@ svg .circle {
 }
 
 #nameCertificato {
-    font-size: 2.5em;
+    font-size: 3em;
     position: absolute;
-    top: 30%;
+    top: 29%;
     left: 9.5%;
 }
 
 #dateCertificato {
     position: absolute;
-    top: 74%;
+    font-size: 0.9em;
+    top: 75%;
     left: 9.5%;
 }
 
 #generatePDF {
     cursor: pointer;
-    font-size: 2.5em;
+    font-size: 2.8em;
     position: relative;
-    bottom: 80%;
+    bottom: 75%;
     left: 50%;
     transition-duration: 0.3s;
 }
