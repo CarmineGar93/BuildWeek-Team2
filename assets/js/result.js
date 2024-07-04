@@ -188,10 +188,12 @@ function displayQuestions() {
                 if (rispSelected[i] === risposteString[i][e]) {
                     risp2.style.color = 'green';
                     risp2.innerHTML += '<i class="fa-solid fa-check"></i>';
+                    quest.innerHTML += '<i class="fa-solid fa-check"></i>';
                 }
             } else {
                 if (rispSelected[i] === risposteString[i][e]) {
                     risp2.style.color = 'red';
+                    quest.innerHTML += '<i class="fa-solid fa-xmark"></i>';
                 }
                 if (domandeObject[i].correct_answer === risposteString[i][e]) {
                     risp2.innerHTML += '<i class="fa-solid fa-check"></i>';
