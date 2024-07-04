@@ -498,6 +498,7 @@ svg .circle {
 
 
 .absolute {
+    display: none;
     position: absolute;
     width: 720px;
     height: 405px;
@@ -577,4 +578,12 @@ svg .circle {
 
 #generatePDF:hover {
     transform: scale(1.3);
+}
+
+
+
+#questionsResults i {
+    padding-left: 20px;
+    color: green;
+    font-size: 1.5em;
 }

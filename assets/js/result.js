@@ -5,6 +5,7 @@ let giannino1 = localStorage.getItem('giannino');
 console.log(giannino1);
 
 
+
 const ctx = document.getElementById('myDoughnutChart').getContext('2d');
 const myPieChart = new Chart(ctx, {
     type: 'doughnut',
@@ -122,16 +123,13 @@ generatePDFButton.addEventListener('click', generatePDF);
 
 
 let correct = parseInt(percentualeCorrect.textContent);
-console.log(correct)
 
 const absolute = document.getElementById('absolute');
-console.log(absolute)
-
 
 if (correct <= 60) {
     absolute.style.display = 'none'
 } else {
-    absolute.style.display = ''
+    absolute.style.display = 'block'
     window.onload = startConfetti;
 }
 
@@ -156,3 +154,56 @@ function startConfetti() {
 
 
 
+
+
+/* risultato del quiz a video */
+
+let dom = localStorage.getItem('domande');
+let risp = localStorage.getItem('risposte');
+let questionsObject = localStorage.getItem('questions');
+let rispSelectedString = localStorage.getItem('carmine');
+
+let domandaString = JSON.parse(dom);
+let risposteString = JSON.parse(risp);
+let domandeObject = JSON.parse(questionsObject);
+let rispSelected = JSON.parse(rispSelectedString);
+
+console.log(rispSelected);
+
+
+const questionsResults = document.getElementById('questionsResults');
+
+function displayQuestions() {
+
+    for (let i = 0; i < domandaString.length; i++) {
+        const questDiv = document.createElement('div')
+        const quest = document.createElement('h2');
+        quest.innerHTML = domandaString[i];
+        questionsResults.appendChild(questDiv);
+        questDiv.appendChild(quest);
+        for (let e = 0; e < risposteString[i].length; e++) {
+            const risp2 = document.createElement('p');
+            risp2.innerHTML = risposteString[i][e];
+            if (rispSelected[i] === domandeObject[i].correct_answer) {
+                if (rispSelected[i] === risposteString[i][e]) {
+                    risp2.style.color = 'green';
+                    risp2.innerHTML += '<i class="fa-solid fa-check"></i>';
+                }
+            } else {
+                if (rispSelected[i] === risposteString[i][e]) {
+                    risp2.style.color = 'red';
+                }
+                if (domandeObject[i].correct_answer === risposteString[i][e]) {
+                    risp2.innerHTML += '<i class="fa-solid fa-check"></i>';
+                }
+            }
+            questDiv.appendChild(risp2);
+        }
+    }
+}
+
+displayQuestions();
+
+//fra scrivo questa cosa che ho pensato poi vediamo se funziona
+/*
+*/

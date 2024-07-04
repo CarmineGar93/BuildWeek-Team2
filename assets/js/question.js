@@ -195,8 +195,20 @@ pTimer.innerText = 10;
 timer.appendChild(pTimer);
 
 const questionsArray = [];              /* VARIABILE CON ARRAY DI TUTTE LE DOMANDE PRESENTE NELL'ARRAY PRINCIPALE (questions) */
-const answersArray = [];                /* VARIABILE CON TUTTE LE RISPOSTE PRESENTE NELL'ARRAY PRINCIPALE (questions) */
+const answersArray = [];
+const answersSelected = [];                /* VARIABILE CON TUTTE LE RISPOSTE PRESENTE NELL'ARRAY PRINCIPALE (questions) */
 let random = [];                        /* VARIABILE PER RANDOMIZZARE LE RISPOSTE, SIA CORRETTE CHE INCORRETTE */
+
+
+let domandaString = '';
+let risposteString = '';
+let questionsObject = '';
+let rispSelectedString = '';
+
+questionsObject = JSON.stringify(questions);
+localStorage.setItem('questions', questionsObject);
+
+
 
 let interval;
 let count;
@@ -221,6 +233,9 @@ function init() {
 btnAvanti.addEventListener('click', function () {                                    /* FUNZIONE AL CLICK SUL BUTTON 'AVANTI', SERVE A CAMBIARE DOMANDA UNA VOLTA SELEZIONATA LA RISPOSTA */
     circle.style.animation = 'none';                                                 /* IL BUTTON è DISABILITATO DI DEFAULT. SI ATTIVA AL MOMENTO DEL CLICK SU UNA DELLE RISPOSTE */
     checkAnswer();
+    const selection = document.querySelector('.click');
+    answersSelected.push(selection.textContent);
+    console.log(answersSelected);
     if (index < questionsArray.length - 1) {
         index++;
         questionDiv.innerHTML = '';
@@ -234,9 +249,11 @@ btnAvanti.addEventListener('click', function () {                               
         localStorage.setItem('peppino', answersCorrect);
         giannino = questionsArray.length;
         localStorage.setItem('giannino', giannino);
+        rispSelectedString = JSON.stringify(answersSelected);
+        localStorage.setItem('carmine', rispSelectedString);
         window.location.href = 'results.html';
     }
-    
+
     clearInterval(count);
     timerCircle();
     clearInterval(interval);
@@ -271,10 +288,20 @@ function arrayQuestions() {                                                     
     for (let i = 0; i < questions.length; i++) {
         questionsArray.push(questions[i].question);
     }
+
+    domandaString = JSON.stringify(questionsArray);
+    risposteString = JSON.stringify(answersArray);
+
+
+    localStorage.setItem('domande', domandaString);
+    localStorage.setItem('risposte', risposteString);
+
 }
 
 function intervalSet() {                                                               /* QUESTA FUNZIONE SERVE A CAMBIARE LE DOMANDE ALLO SCADERE DEL TEMPO IMPOSTATO, (esempio, 10s) */
     interval = setInterval(function () {
+        answersSelected.push('');
+        console.log(answersSelected);
         if (index < questionsArray.length - 1) {
             index++;
             questionDiv.innerHTML = '';
@@ -286,8 +313,11 @@ function intervalSet() {                                                        
         } else {
             localStorage.setItem('peppino', answersCorrect);                      /* N.B. TENERE IN CONSIDERAZIONE PEPPINO */
             giannino = questionsArray.length;
-            localStorage.setItem('giannino', giannino);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
+            localStorage.setItem('giannino', giannino);
+            rispSelectedString = JSON.stringify(answersSelected);
+            localStorage.setItem('carmine', rispSelectedString);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
             window.location.href = 'results.html';
+
         }
     }, 10000);
 }
@@ -318,7 +348,7 @@ function quest() {                                                              
         const risposte = random[index][j];
         answersDiv.innerHTML = risposte;
         answersDiv.classList.add('answersDiv');
-        answersDiv.addEventListener('click', function () {    
+        answersDiv.addEventListener('click', function () {
             btnAvanti.style.opacity = '1'                                                /* QUESTO EVENTO CLICK SERVE A INSERIRE UNA CLASSE ALLA RISPOSTA SELEZIONATA */
             unselect();
             answersDiv.classList.add('click');
@@ -354,5 +384,4 @@ function disable() {                                                            
     btnAvanti.setAttribute('disabled', true)
     btnAvanti.style.opacity = '0.5'
 }
-
 
