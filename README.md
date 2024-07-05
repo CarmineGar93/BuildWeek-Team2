@@ -71,10 +71,10 @@ Segui questi passaggi per installare e configurare l'applicazione sul tuo sistem
 
 ## Librerie usate:
 
-[Fontawesome](https://fontawesome.com/)
-[HTML2PDF](https://github.com/spipu/html2pdf)
-[GoogleFonts](https://fonts.google.com/)
-[ChartJS](https://www.chartjs.org/)
+- [Fontawesome](https://fontawesome.com/)
+- [HTML2PDF](https://github.com/spipu/html2pdf)
+- [GoogleFonts](https://fonts.google.com/)
+- [ChartJS](https://www.chartjs.org/)
 
 ## Contatti:
 
@@ -145,10 +145,10 @@ Follow these steps to install and configure the application on your system:
 
 ## Libraries
 
-[Fontawesome](https://fontawesome.com/)
-[HTML2PDF](https://github.com/spipu/html2pdf)
-[GoogleFonts](https://fonts.google.com/)
-[ChartJS](https://www.chartjs.org/)
+- [Fontawesome](https://fontawesome.com/)
+- [HTML2PDF](https://github.com/spipu/html2pdf)
+- [GoogleFonts](https://fonts.google.com/)
+- [ChartJS](https://www.chartjs.org/)
 
 ## Contacts
 
