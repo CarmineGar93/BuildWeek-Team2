@@ -46,7 +46,7 @@ Segui questi passaggi per installare e configurare l'applicazione sul tuo sistem
 
 1. Clona il repository:
    ```bash
-   [text](https://github.com/CarmineGar93/BuildWeek-Team2.git)
+   https://github.com/CarmineGar93/BuildWeek-Team2.git
 
 ## Uso
 
