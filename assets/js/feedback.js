@@ -49,7 +49,8 @@ function moreInfoDisable(){
 
 moreInfo.addEventListener('click', function (e) {
     e.preventDefault();
-    window.alert(`${starValue} ${feedback.value}`)
+    window.alert(`La tua valutazione è ${starValue} stelline.
+        ${feedback.value}`)
     unselect();
     formMoreInfo.reset();
     moreInfo.style.opacity = '0.5';
