@@ -69,7 +69,7 @@ Segui questi passaggi per installare e configurare l'applicazione sul tuo sistem
 - Marco Widesott
 - Michelepaolo Renzi  
 
-## Librerie usate:
+## Librerie:
 
 - [Fontawesome](https://fontawesome.com/)
 - [HTML2PDF](https://github.com/spipu/html2pdf)
