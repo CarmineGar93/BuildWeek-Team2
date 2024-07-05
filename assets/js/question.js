@@ -300,7 +300,7 @@ function arrayQuestions() {                                                     
 
 function intervalSet() {                                                               /* QUESTA FUNZIONE SERVE A CAMBIARE LE DOMANDE ALLO SCADERE DEL TEMPO IMPOSTATO, (esempio, 10s) */
     interval = setInterval(function () {
-        answersSelected.push('');
+        answersSelected.push('incorrect_answer');
         console.log(answersSelected);
         if (index < questionsArray.length - 1) {
             index++;

@@ -10,11 +10,13 @@ let inputValue;
 form.addEventListener('submit', function() {
     inputValue = name1.value;
 
-    localStorage.setItem('vecienz', inputValue); 
+    localStorage.setItem('vecienz', inputValue);
+    
+    form.reset();
 });
 
 
-name1.addEventListener('blur', function(){
+name1.addEventListener('input', function(){
     if (name1.value !== '' && promise.checked === true){
         btnPromise.style.opacity = '1';
     } else {
@@ -22,7 +24,7 @@ name1.addEventListener('blur', function(){
     }
 })
 
-promise.addEventListener('blur', function(){
+promise.addEventListener('input', function(){
     if (name1.value !== '' && promise.checked === true){
         btnPromise.style.opacity = '1';
     } else {

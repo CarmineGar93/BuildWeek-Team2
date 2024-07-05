@@ -145,7 +145,7 @@ function createConfetti() {
 
     setTimeout(() => {
         confetti.remove();
-    }, 5000);
+    }, 8000);
 }
 
 function startConfetti() {
@@ -168,44 +168,97 @@ let risposteString = JSON.parse(risp);
 let domandeObject = JSON.parse(questionsObject);
 let rispSelected = JSON.parse(rispSelectedString);
 
-console.log(rispSelected);
+console.log(domandeObject);
 
 
 const questionsResults = document.getElementById('questionsResults');
 
+
+
+
+
 function displayQuestions() {
+    const questDiv = document.createElement('ul')
 
     for (let i = 0; i < domandaString.length; i++) {
-        const questDiv = document.createElement('div')
-        const quest = document.createElement('h2');
+        const quest = document.createElement('li');
+        quest.addEventListener('click', () => hidden(`n${i}`, `icon${i}`));
         quest.innerHTML = domandaString[i];
+        quest.innerHTML += `<i class="fa-solid fa-angle-right rightClass" id="icon${i}"></i>`;
         questionsResults.appendChild(questDiv);
         questDiv.appendChild(quest);
+        const rispDiv = document.createElement('div');
+        rispDiv.setAttribute('id', `n${i}`);
+        rispDiv.classList.add('hidden');
         for (let e = 0; e < risposteString[i].length; e++) {
             const risp2 = document.createElement('p');
             risp2.innerHTML = risposteString[i][e];
             if (rispSelected[i] === domandeObject[i].correct_answer) {
                 if (rispSelected[i] === risposteString[i][e]) {
                     risp2.style.color = 'green';
-                    risp2.innerHTML += '<i class="fa-solid fa-check"></i>';
-                    quest.innerHTML += '<i class="fa-solid fa-check"></i>';
+                    risp2.style.fontSize = '1.1em';
+                    risp2.innerHTML += '<i class="fa-solid fa-check verde"></i>';
+                    quest.classList.add('classV');
                 }
             } else {
                 if (rispSelected[i] === risposteString[i][e]) {
                     risp2.style.color = 'red';
-                    quest.innerHTML += '<i class="fa-solid fa-xmark"></i>';
+                    risp2.style.fontSize = '1.1em';
+                    quest.classList.add('classX');
                 }
                 if (domandeObject[i].correct_answer === risposteString[i][e]) {
-                    risp2.innerHTML += '<i class="fa-solid fa-check"></i>';
+                    risp2.innerHTML += '<i class="fa-solid fa-check verde"></i>';
                 }
             }
-            questDiv.appendChild(risp2);
+            quest.appendChild(rispDiv);
+            rispDiv.appendChild(risp2);
+        }
+
+        if (rispSelected[i] === 'incorrect_answer') {
+            quest.classList.add('classX');
         }
     }
+
 }
 
 displayQuestions();
 
-//fra scrivo questa cosa che ho pensato poi vediamo se funziona
-/*
-*/
+
+
+function hidden(list, icon) {
+    if (document.getElementById(list).style.display === 'block') {
+        document.getElementById(list).style.display = 'none';
+        document.getElementById(icon).style.transform = '';
+    } else {
+        document.getElementById(list).style.display = 'block';
+        document.getElementById(icon).style.transform = 'rotate(90deg)';
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+const tornaSu = document.getElementById('tornaSuBtn');
+let comparsaTornaSu = window.getComputedStyle(tornaSu).getPropertyValue('display');
+
+window.onscroll = function () {
+    if (comparsaTornaSu === 'none' && document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        tornaSu.style.display = "block";
+    } else {
+        tornaSu.style.display = "none";
+    }
+};
+
+tornaSu.onclick = function (e) {
+    e.preventDefault()
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
