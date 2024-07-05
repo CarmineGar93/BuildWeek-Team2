@@ -92,3 +92,8 @@ function overMouse() {
 overMouse();
 
 
+document.getElementById("feedback").addEventListener("keydown", function(event){
+  if (event.key === "Enter") {
+      event.preventDefault();
+  }
+});
