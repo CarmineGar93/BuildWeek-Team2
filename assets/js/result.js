@@ -1,8 +1,8 @@
 let peppino1 = localStorage.getItem('peppino');
 console.log(peppino1);
 
-let giannino1 = localStorage.getItem('giannino');
-console.log(giannino1);
+let totalQuestions = localStorage.getItem('totalQuestions');
+console.log(totalQuestions);
 
 
 
@@ -11,7 +11,7 @@ const myPieChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         datasets: [{
-            data: [((100 / giannino1) * (giannino1 - peppino1)).toFixed(1), ((100 / giannino1) * peppino1).toFixed(1)],
+            data: [((100 / totalQuestions) * (totalQuestions - peppino1)).toFixed(1), ((100 / totalQuestions) * peppino1).toFixed(1)],
             backgroundColor: [
                 '#D20094',
                 '#00FFFF',
@@ -32,8 +32,8 @@ const percentualeCorrect = document.createElement('h2');
 percentualeCorrect.style.fontWeight = 'bolder';
 const pCounterQuestions = document.createElement('p');
 
-percentualeCorrect.innerHTML = `${((100 / giannino1) * peppino1).toFixed(1)}%`;
-pCounterQuestions.innerHTML = `${peppino1} / ${giannino1} questions`;
+percentualeCorrect.innerHTML = `${((100 / totalQuestions) * peppino1).toFixed(1)}%`;
+pCounterQuestions.innerHTML = `${peppino1} / ${totalQuestions} questions`;
 
 correctAswers.appendChild(percentualeCorrect);
 correctAswers.appendChild(pCounterQuestions);
@@ -44,8 +44,8 @@ const percentualeWrong = document.createElement('h2');
 percentualeWrong.style.fontWeight = 'bolder';
 const pCounterQuestionsWrong = document.createElement('p');
 
-percentualeWrong.innerHTML = `${((100 / giannino1) * (giannino1 - peppino1)).toFixed(1)}%`;;
-pCounterQuestionsWrong.innerHTML = `${giannino1 - peppino1} / ${giannino1} questions`;
+percentualeWrong.innerHTML = `${((100 / totalQuestions) * (totalQuestions - peppino1)).toFixed(1)}%`;;
+pCounterQuestionsWrong.innerHTML = `${totalQuestions - peppino1} / ${totalQuestions} questions`;
 
 wrongAnswers.appendChild(percentualeWrong);
 wrongAnswers.appendChild(pCounterQuestionsWrong);
@@ -62,7 +62,7 @@ textResults.appendChild(textResultsTitle);
 textResults.appendChild(textResultsSubTitle);
 textResults.appendChild(textResultsP);
 
-if (((100 / giannino1) * peppino1) >= 60) {
+if (((100 / totalQuestions) * peppino1) >= 60) {
     textResultsTitle.innerHTML = 'Congratulations!';
     textResultsSubTitle.innerHTML = 'You passed the exam.';
     textResultsSubTitle.style.color = '#00FFFF';
@@ -80,7 +80,7 @@ Check your email (including promotions / spam folder).`;
 
 /* prove libreria html2pdf */
 
-let input1 = localStorage.getItem('vecienz');
+let input1 = localStorage.getItem('inputName');
 console.log(input1);
 
 let data = new Date();

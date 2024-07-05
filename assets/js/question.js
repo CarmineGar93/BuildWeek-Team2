@@ -217,7 +217,7 @@ let index = 0;
 
 
 let answersCorrect = 0;
-let giannino = 0;
+let totalQuestions = 0;
 
 window.addEventListener('load', init())
 
@@ -247,8 +247,8 @@ btnAvanti.addEventListener('click', function () {                               
         circle.style.animation = '10s circletimer linear infinite';
     } else {
         localStorage.setItem('peppino', answersCorrect);
-        giannino = questionsArray.length;
-        localStorage.setItem('giannino', giannino);
+        totalQuestions = questionsArray.length;
+        localStorage.setItem('totalQuestions', totalQuestions);
         rispSelectedString = JSON.stringify(answersSelected);
         localStorage.setItem('carmine', rispSelectedString);
         window.location.href = 'results.html';
@@ -312,8 +312,8 @@ function intervalSet() {                                                        
             displayCount();
         } else {
             localStorage.setItem('peppino', answersCorrect);                      /* N.B. TENERE IN CONSIDERAZIONE PEPPINO */
-            giannino = questionsArray.length;
-            localStorage.setItem('giannino', giannino);
+            totalQuestions = questionsArray.length;
+            localStorage.setItem('totalQuestions', totalQuestions);
             rispSelectedString = JSON.stringify(answersSelected);
             localStorage.setItem('carmine', rispSelectedString);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
             window.location.href = 'results.html';

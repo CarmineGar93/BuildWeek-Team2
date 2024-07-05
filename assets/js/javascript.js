@@ -10,7 +10,7 @@ let inputValue;
 form.addEventListener('submit', function() {
     inputValue = name1.value;
 
-    localStorage.setItem('vecienz', inputValue);
+    localStorage.setItem('inputName', inputValue);
     
     form.reset();
 });
