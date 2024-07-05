@@ -722,7 +722,7 @@ svg .circle {
 
     position: absolute;
     top: 68%;
-    left: 75%;
+    left: 72%;
 
 }
 
@@ -730,7 +730,7 @@ svg .circle {
     font-size: 1.2em;
     overflow-wrap: break-word;
     position: relative;
-    width: 25vw;
+    width: 350px;
     height: 120px;
     border: 2px solid #17192B;
     border-radius: 5px;

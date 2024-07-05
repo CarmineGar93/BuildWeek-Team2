@@ -73,7 +73,7 @@ moreInfo.addEventListener("click", function (e) {
   divInvisible.classList.add('invisible');
   bodyDiv.style.opacity = '0.2';
   e.preventDefault();
-  window.alert('La tua valutazione è ' + starValue + ' stelline.<br>La tua valutazione è: ' + feedback.value);
+  window.alert('Your evaluation is ' + starValue + ' star.<br>Your feedback is: ' + feedback.value);
   unselect();
   formMoreInfo.reset();
   moreInfo.style.opacity = '0.5';

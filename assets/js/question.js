@@ -182,19 +182,29 @@ const questions = [
     }
 ];
 
-document.addEventListener('visibilitychange', function() {
+document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
-        answersCorrect = 0;
-        localStorage.setItem('peppino', answersCorrect);
-        totalQuestions = questionsArray.length;
-        localStorage.setItem('totalQuestions', totalQuestions);
-        answersSelected = [];
-        for(let i = 0; i < questions.length; i++){
-            answersSelected.push('incorrect_answer');
+        if (index === questions.length - 1) {
+            localStorage.setItem('peppino', answersCorrect);
+            totalQuestions = questionsArray.length;
+            localStorage.setItem('totalQuestions', totalQuestions);
+            rispSelectedString = JSON.stringify(answersSelected);
+            localStorage.setItem('rispSelectedString', rispSelectedString);
+            window.location.href = '/results.html';
+        } else {
+            answersCorrect = 0;
+            localStorage.setItem('peppino', answersCorrect);
+            totalQuestions = questionsArray.length;
+            localStorage.setItem('totalQuestions', totalQuestions);
+            answersSelected = [];
+            for (let i = 0; i < questions.length; i++) {
+                answersSelected.push('incorrect_answer');
+            }
+            rispSelectedString = JSON.stringify(answersSelected);
+            localStorage.setItem('rispSelectedString', rispSelectedString);
+            window.location.href = '/results.html';
         }
-        rispSelectedString = JSON.stringify(answersSelected);
-        localStorage.setItem('rispSelectedString', rispSelectedString);
-        window.location.href = '/results.html';
+
     }
 });
 
