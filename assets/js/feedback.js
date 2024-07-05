@@ -1,25 +1,35 @@
 const star = document.querySelectorAll(".star");
+const bodyDiv = document.querySelectorAll('.opacityDiv')[0];
+
+const divInvisible = document.createElement('div');
+document.body.appendChild(divInvisible);
+
+console.log(bodyDiv)
 
 let starValue;
 let vis = 1000;
 window.alert = function (message) {
-    let a = document.createElement("div");
-    a.classList.add('divAlert');
-    a.style.cssText = 'z-index:' + vis + ';'
-      
+  let a = document.createElement("div");
+  a.classList.add('divAlert');
+  a.style.cssText = 'z-index:' + vis + ';'
 
-      a.innerHTML = message;
-      let btn = document.createElement('button');
-      btn.classList.add('alertButton');
-      btn.innerText = 'OK';
-      a.appendChild(btn);
-      document.body.appendChild(a);
-      vis--;
 
-      btn.addEventListener('click', function () {
-        a.remove();
-      })
-  };
+  a.innerHTML = message;
+  let btn = document.createElement('button');
+  btn.classList.add('alertButton');
+  btn.innerText = 'OK';
+  a.appendChild(btn);
+  document.body.appendChild(a);
+  vis--;
+
+  btn.addEventListener('click', function () {
+    divInvisible.classList.remove('invisible');
+    bodyDiv.style.opacity = '1';
+    a.remove();
+  })
+};
+
+
 
 for (let i = 0; i < star.length; i++) {
   star[i].addEventListener("click", function () {
@@ -60,11 +70,13 @@ function moreInfoDisable() {
 }
 
 moreInfo.addEventListener("click", function (e) {
+  divInvisible.classList.add('invisible');
+  bodyDiv.style.opacity = '0.2';
   e.preventDefault();
-  window.alert('La tua valutazione è '+ starValue + ' stelline.<br>La tua valutazione è: ' + feedback.value);
-    unselect();
-    formMoreInfo.reset();
-    moreInfo.style.opacity = '0.5';
+  window.alert('La tua valutazione è ' + starValue + ' stelline.<br>La tua valutazione è: ' + feedback.value);
+  unselect();
+  formMoreInfo.reset();
+  moreInfo.style.opacity = '0.5';
 });
 
 function overMouse() {

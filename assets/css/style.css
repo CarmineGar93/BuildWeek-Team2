@@ -27,6 +27,12 @@ body {
     padding: 4% 8%;
 }
 
+.opacityDiv {
+    transition-duration: 0.3s;
+    user-select: none;
+}
+
+
 #btnPromise {
     cursor: pointer;
     transition-duration: 0.3s;
@@ -247,7 +253,7 @@ form p {
 #question {
     margin: 0 10em;
     line-height: 3em;
-    margin-top: 10em;
+    margin-top: 100px;
 }
 
 #question h1 {
@@ -258,6 +264,12 @@ form p {
 
 #countQuestions span {
     color: #C2158E;
+}
+
+#countQuestions {
+    position: fixed;
+    top: 85%;
+    right: 80%;
 }
 
 
@@ -293,12 +305,6 @@ form p {
 }
 
 
-
-
-#countQuestions span {
-    color: #C2158E;
-}
-
 /* ----------- modifiche mockup domande 03 07 --------------- */
 
 
@@ -316,6 +322,7 @@ form p {
     font-weight: bold;
     margin-right: 7%;
     transition-duration: 0.3s;
+    
 }
 
 .rateUs {
@@ -336,7 +343,10 @@ form p {
 }
 
 #btnAvanti {
-    float: right;
+    position: fixed;
+    top: 85%;
+    left: 75%;
+    /* float: right; */
 }
 
 @keyframes circletimer {
@@ -653,20 +663,21 @@ svg .circle {
 
 
 .classX::before {
-    content: '\f057'; 
+    content: '\f057';
     font-family: 'Font Awesome 5 Free';
     font-weight: 100;
     margin-right: 20px;
     margin-left: 10px;
     color: rgba(255, 0, 0, 0.7);
 }
+
 .classV::before {
     content: '\f058';
     font-family: 'Font Awesome 5 Free';
     font-weight: 100;
     margin-right: 20px;
     margin-left: 10px;
-    color: rgba(0, 128, 0, 0.7); 
+    color: rgba(0, 128, 0, 0.7);
 }
 
 
@@ -696,8 +707,7 @@ svg .circle {
 /* alert button */
 
 .alertButton {
-    
-    
+
     font-size: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -709,33 +719,43 @@ svg .circle {
     box-shadow: 0px 0px 21px 7px rgba(43, 210, 255, 0.5);
     padding-left: 2.5em;
     padding-right: 2.5em;
-    
+
     position: absolute;
     top: 68%;
     left: 75%;
-    
+
 }
 
 .divAlert {
     font-size: 1.2em;
     overflow-wrap: break-word;
     position: relative;
-    width:25vw; 
-    height:120px; 
-    border:2px solid #17192B; 
-    border-radius:5px; 
-    padding: 30px 50px; 
-    background-image:url(../img/bg.jpg);
+    width: 25vw;
+    height: 120px;
+    border: 2px solid #17192B;
+    border-radius: 5px;
+    padding: 30px 50px;
+    background-image: url(../img/bg.jpg);
     -webkit-box-shadow: 0px 0px 21px 7px rgba(43, 209, 255, 0.308);
     box-shadow: 0px 0px 21px 7px rgba(43, 209, 255, 0.308);
-    position:fixed; 
-    top: 20px; 
-    right: 0%; 
-    left: 0%; 
-    margin:auto; 
-    font-family: "Arial", sans-serif; 
-    color:white; 
+    position: fixed;
+    top: 20px;
+    right: 0%;
+    left: 0%;
+    margin: auto;
+    font-family: "Arial", sans-serif;
+    color: white;
     background-size: cover;
-    
-    
+
+
+}
+
+
+.invisible {
+    height: 100%;
+    width: 110%;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    opacity: 0;
 }
