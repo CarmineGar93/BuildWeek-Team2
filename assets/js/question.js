@@ -277,7 +277,7 @@ btnAvanti.addEventListener('click', function () {                               
         localStorage.setItem('totalQuestions', totalQuestions);
         rispSelectedString = JSON.stringify(answersSelected);
         localStorage.setItem('rispSelectedString', rispSelectedString);
-        window.location.href = 'results.html';
+        window.location.href = '/results.html';
     }
 
     clearInterval(count);
@@ -342,7 +342,7 @@ function intervalSet() {                                                        
             localStorage.setItem('totalQuestions', totalQuestions);
             rispSelectedString = JSON.stringify(answersSelected);
             localStorage.setItem('rispSelectedString', rispSelectedString);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
-            window.location.href = 'results.html';
+            window.location.href = '/results.html';
 
         }
     }, 10000);
