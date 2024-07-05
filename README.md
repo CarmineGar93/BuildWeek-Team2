@@ -45,7 +45,7 @@ Questa applicazione è stata sviluppata da studenti per studenti. L'obiettivo è
 Segui questi passaggi per installare e configurare l'applicazione sul tuo sistema:
 
 1. Clona il repository:
-   `https://github.com/CarmineGar93/BuildWeek-Team2.git``bash
+   ```bash
 
 ## Uso
 
