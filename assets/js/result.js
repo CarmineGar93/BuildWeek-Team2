@@ -5,7 +5,6 @@ let totalQuestions = localStorage.getItem('totalQuestions');
 console.log(totalQuestions);
 
 
-
 const ctx = document.getElementById('myDoughnutChart').getContext('2d');
 const myPieChart = new Chart(ctx, {
     type: 'doughnut',
@@ -236,15 +235,6 @@ function hidden(list, icon) {
     }
 
 }
-
-
-
-
-
-
-
-
-
 
 
 
