@@ -11,10 +11,9 @@ Benvenuti nell'applicazione Benchmark Test di Epicode, che è stata sviluppata p
 3. [Installazione](#installazione)
 4. [Uso](#uso)
 5. [Contributi](#contributi)
-6. [Licenza](#licenza)
-7. [Librerie](#librerie)
-8. [Contatti](#contatti)
-9. [Ringraziamenti](#ringraziamenti)
+6. [Librerie](#librerie)
+7. [Contatti](#contatti)
+8. [Ringraziamenti](#ringraziamenti)
 
 ## Index
 
@@ -25,10 +24,9 @@ Benvenuti nell'applicazione Benchmark Test di Epicode, che è stata sviluppata p
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Contributions](#contributions)
-6. [License](#license)
-7. [Libraries](#libraries)
-8. [Contacts](#contacts)
-9. [Acknowledgments](#acknowledgments)
+6. [Libraries](#libraries)
+7. [Contacts](#contacts)
+8. [Acknowledgments](#acknowledgments)
 
 ## Descrizione
 
@@ -71,7 +69,12 @@ Segui questi passaggi per installare e configurare l'applicazione sul tuo sistem
 - Marco Widesott
 - Michelepaolo Renzi  
 
-## Licenza:
+## Librerie usate:
+
+[Fontawesome](https://fontawesome.com/)
+[HTML2PDF](https://github.com/spipu/html2pdf)
+[GoogleFonts](https://fonts.google.com/)
+[ChartJS](https://www.chartjs.org/)
 
 ## Contatti:
 
@@ -130,7 +133,7 @@ Follow these steps to install and configure the application on your system:
 
 ## Contributions
 
-##Collaborators
+### Collaborators
 
 - Carmine Gargiulo
 - Enzo Cesarano
@@ -140,8 +143,12 @@ Follow these steps to install and configure the application on your system:
 - Michelepaolo Renzi 
 
 
-## Licence
+## Libraries
 
+[Fontawesome](https://fontawesome.com/)
+[HTML2PDF](https://github.com/spipu/html2pdf)
+[GoogleFonts](https://fonts.google.com/)
+[ChartJS](https://www.chartjs.org/)
 
 ## Contacts
 
