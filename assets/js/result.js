@@ -67,12 +67,12 @@ if (((100 / giannino1) * peppino1) >= 60) {
     textResultsSubTitle.innerHTML = 'You passed the exam.';
     textResultsSubTitle.style.color = '#00FFFF';
     textResultsP.innerHTML = `We'll send you the certificate in few minutes.
-Check your email (including promotions / spam folder)`;
+Check your email (including promotions / spam folder).`;
 } else {
     textResultsTitle.innerHTML = 'Wrong!';
     textResultsSubTitle.innerHTML = 'You failed the exam.';
     textResultsSubTitle.style.color = '#D20094';
-    textResultsP.innerHTML = `You will not receive any certificate. You will be contacted for the oral exam. GOAT!`;
+    textResultsP.innerHTML = `You will not receive any certificate. You will be contacted for the oral exam. Check your email (including promotions / spam folder).`;
 }
 
 
