@@ -161,7 +161,7 @@ function startConfetti() {
 let dom = localStorage.getItem('domande');
 let risp = localStorage.getItem('risposte');
 let questionsObject = localStorage.getItem('questions');
-let rispSelectedString = localStorage.getItem('carmine');
+let rispSelectedString = localStorage.getItem('rispSelectedString');
 
 let domandaString = JSON.parse(dom);
 let risposteString = JSON.parse(risp);
@@ -217,6 +217,7 @@ function displayQuestions() {
         if (rispSelected[i] === 'incorrect_answer') {
             quest.classList.add('classX');
         }
+
     }
 
 }

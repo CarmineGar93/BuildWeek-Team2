@@ -182,6 +182,22 @@ const questions = [
     }
 ];
 
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        answersCorrect = 0;
+        localStorage.setItem('peppino', answersCorrect);
+        totalQuestions = questionsArray.length;
+        localStorage.setItem('totalQuestions', totalQuestions);
+        answersSelected = [];
+        for(let i = 0; i < questions.length; i++){
+            answersSelected.push('incorrect_answer');
+        }
+        rispSelectedString = JSON.stringify(answersSelected);
+        localStorage.setItem('rispSelectedString', rispSelectedString);
+        window.location.href = '/results.html';
+    }
+});
+
 
 const timer = document.getElementById('timer');
 const countQuestions = document.getElementById('countQuestions');
@@ -196,7 +212,7 @@ timer.appendChild(pTimer);
 
 const questionsArray = [];              /* VARIABILE CON ARRAY DI TUTTE LE DOMANDE PRESENTE NELL'ARRAY PRINCIPALE (questions) */
 const answersArray = [];
-const answersSelected = [];                /* VARIABILE CON TUTTE LE RISPOSTE PRESENTE NELL'ARRAY PRINCIPALE (questions) */
+let answersSelected = [];                /* VARIABILE CON TUTTE LE RISPOSTE PRESENTE NELL'ARRAY PRINCIPALE (questions) */
 let random = [];                        /* VARIABILE PER RANDOMIZZARE LE RISPOSTE, SIA CORRETTE CHE INCORRETTE */
 
 
@@ -250,7 +266,7 @@ btnAvanti.addEventListener('click', function () {                               
         totalQuestions = questionsArray.length;
         localStorage.setItem('totalQuestions', totalQuestions);
         rispSelectedString = JSON.stringify(answersSelected);
-        localStorage.setItem('carmine', rispSelectedString);
+        localStorage.setItem('rispSelectedString', rispSelectedString);
         window.location.href = 'results.html';
     }
 
@@ -315,7 +331,7 @@ function intervalSet() {                                                        
             totalQuestions = questionsArray.length;
             localStorage.setItem('totalQuestions', totalQuestions);
             rispSelectedString = JSON.stringify(answersSelected);
-            localStorage.setItem('carmine', rispSelectedString);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
+            localStorage.setItem('rispSelectedString', rispSelectedString);                    /* N.B. TENERE IN CONSIDERAZIONE GIANNINO */
             window.location.href = 'results.html';
 
         }
@@ -384,4 +400,7 @@ function disable() {                                                            
     btnAvanti.setAttribute('disabled', true)
     btnAvanti.style.opacity = '0.5'
 }
+
+
+
 
