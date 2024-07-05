@@ -64,12 +64,12 @@ Segui questi passaggi per installare e configurare l'applicazione sul tuo sistem
 
 ### Collaboratori: 
 
-Carmine Gargiulo
-Enzo Cesarano
-Luca Campion
-Loic Mangele
-Marco Widesott
-Michelepaolo Renzi 
+- Carmine Gargiulo
+- Enzo Cesarano
+- Luca Campion
+- Loic Mangele
+- Marco Widesott
+- Michelepaolo Renzi  
 
 ## Licenza:
 
@@ -105,9 +105,7 @@ This application was developed by students for students. The goal is to provide 
 - **Registration**: Users must enter their First and Last Name to access the Test.
 - **Immediate Feedback**: At the end of the benchmark, users receive feedback on their answers, being able to compare any mistakes with the correct answers.
 - **Final Score**: A summary of performance at the end of the test.
-- **Completion Certificate**: If the score is above 60%, the student will receive a PDF file certifying the successful completion of the benchmark.
-
-## Installation
+- **Completion Certificate**: If the score is above 60%, the student will receive a PDF file certifying the successful completion of the benchmark. 
 
 ## Installation
 
@@ -125,7 +123,7 @@ Follow these steps to install and configure the application on your system:
 
 1. Enter your first name and last name in the designated field and click Proceed.
 2. Start the test.
-3.For each question you will have 10 seconds to provide one of the multiple-choice answers.
+3. For each question you will have 10 seconds to provide one of the multiple-choice answers.
 4. Once you select the answer and click the proceed button, it will not be possible to go back to the previous question.
 5. After completing the test, you will be redirected to the results page.
 6. *Optional step*: Leave your feedback to help us improve our application.
@@ -134,12 +132,12 @@ Follow these steps to install and configure the application on your system:
 
 ##Collaborators
 
-Carmine Gargiulo
-Enzo Cesarano
-Luca Campion
-Loic Mangele
-Marco Widesott
-Michelepaolo Renzi 
+- Carmine Gargiulo
+- Enzo Cesarano
+- Luca Campion
+- Loic Mangele
+- Marco Widesott
+- Michelepaolo Renzi 
 
 
 ## Licence
@@ -151,13 +149,9 @@ Carmine Gargiulo [carmygargiulo45@gmail.com](mailto:carmygargiulo45@gmail.com) -
 
 Enzo Cesarano - [vinc.cesarano@mail.com](mailto:vinc.cesarano@gmail.com) - [Linkedin](https://www.linkedin.com/in/vincenzo-cesarano-6b2602252/)
 
-
 Luca Campion - [campionluca3@gmail.com](mailto:campionluca3@gmail.com) - [Linkedin](https://www.linkedin.com/in/luca-campion-25a2311b0/)
 
-
 Loic Mangele – [behonloic@gmail.com](mailto:behonloic@gmail.com) 
-
-
 
 Marco Widesott - [mwidesott@gmail.com](mailto:mwidesott@gmail.com) - [Linkedin](https://www.linkedin.com/in/marco-widesott-6187291b8/)
 
